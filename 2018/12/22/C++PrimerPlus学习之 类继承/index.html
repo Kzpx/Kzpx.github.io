@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+  <script>
+    (function(){
+        if(''){
+            if (prompt('��������������') !== ''){
+                alert('�������');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Program,C++,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="主要介绍了类的继承、虚函数、类继承的动态内存分配问题、继承与友元函数。">
+<meta name="keywords" content="Program,C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Primer Plus 学习之 类继承">
+<meta property="og:url" content="https://kzpx.github.io/2018/12/22/C++PrimerPlus学习之 类继承/index.html">
+<meta property="og:site_name" content="ymkzpx">
+<meta property="og:description" content="主要介绍了类的继承、虚函数、类继承的动态内存分配问题、继承与友元函数。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-22T06:22:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Primer Plus 学习之 类继承">
+<meta name="twitter:description" content="主要介绍了类的继承、虚函数、类继承的动态内存分配问题、继承与友元函数。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kzpx.github.io/2018/12/22/C++PrimerPlus学习之 类继承/">
+
+
+
+
+
+  <title>C++ Primer Plus 学习之 类继承 | ymkzpx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ymkzpx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Success and failure are temporary.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kzpx.github.io/2018/12/22/C++PrimerPlus学习之 类继承/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kzpx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/64938469_p0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ymkzpx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++ Primer Plus 学习之 类继承</h1>
+        
+
+        <div class="post-meta">
+                  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-22T14:22:36+08:00">
+                2018-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Program/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>主要介绍了类的继承、虚函数、类继承的动态内存分配问题、继承与友元函数。</p>
+<a id="more"></a>
+<hr>
+<h3 id="公有派生"><a href="#公有派生" class="headerlink" title="公有派生"></a>公有派生</h3><ul>
+<li>基类的公有成员和私有成员都会成为派生类的一部分。</li>
+<li>基类的私有成员只能通过基类的公有或者保护方法访问。但是，基类指针或引用只能用于调用基类方法，不能调用派生类方法。(这种兼容性使得可以用派生类对象来初始化基类对象，也可以将派生类对象赋给基类对象。)</li>
+<li>基类的指针或引用可以在不显示类型转换的情况下指向派生类。</li>
+<li>派生类的构造函数。</li>
+<li><ul>
+<li>首先会创建基类的对象，派生类的构造函数应通过成员初始化列表将基类信息传递给基类的构造函数。</li>
+</ul>
+</li>
+<li><ul>
+<li>基类有指针成员或者动态内存分配，则需要定义基类的复制构造函数。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//于b的类型为Base &amp;，因此将调用基类的复制构造函数，如果基类使用了动态内存分配(new)的话，则需要定义基类的复制构造函数。</span></span><br><span class="line">Point::Point(<span class="keyword">int</span> tk,<span class="keyword">const</span> Base &amp;b):Base(b)</span><br><span class="line">&#123;</span><br><span class="line">	k=tk;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>派生类的析构函数</p>
+</li>
+<li><ul>
+<li>派生类对象过期时，程序将首先调用派生类析构函数，然后再调用基类析构函数。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="多态-动态多态"><a href="#多态-动态多态" class="headerlink" title="多态-动态多态"></a>多态-动态多态</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>同一个方法在派生类和基类中的行为是不同的。</li>
+<li>方法取决于调用该方法的对象。</li>
+<li>前面所学的重载和函数模板是在编译时间便确定的联编，称为静态多态。</li>
+</ul>
+<h4 id="重写基类方法"><a href="#重写基类方法" class="headerlink" title="重写基类方法"></a>重写基类方法</h4><ul>
+<li>基类的方法可以在派生类中重写 – 使用classname::来说明是基类的还是派生类的。</li>
+<li><p>可在派生类中使用基类名作为限定符调用同名的基类函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> Point::show()</span><br><span class="line">&#123;</span><br><span class="line">	Base::show();</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;z&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果基类中的函数有多个重载，则继承过来的时候不能只重新定义一个版本的，则会导致另外的会被隐藏。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">int</span> a)</span><span class="keyword">const</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span><span class="keyword">const</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="number">10</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">double</span> a)</span><span class="keyword">const</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">P</span> :</span> <span class="keyword">public</span> Base</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">int</span> a)</span><span class="keyword">const</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;a+<span class="number">10</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*void show()const</span></span><br><span class="line"><span class="comment">	&#123;</span></span><br><span class="line"><span class="comment">		cout&lt;&lt;20&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">	void show(double a)const</span></span><br><span class="line"><span class="comment">	&#123;</span></span><br><span class="line"><span class="comment">		cout&lt;&lt;a+10&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	P a;</span><br><span class="line">	a.show();<span class="comment">//invalid</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="实现多态公有继承的两种方法"><a href="#实现多态公有继承的两种方法" class="headerlink" title="实现多态公有继承的两种方法"></a>实现多态公有继承的两种方法</h3><ul>
+<li>在派生类重新定义基类的方法。</li>
+<li>使用虚方法。</li>
+</ul>
+<hr>
+<h3 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h3><ul>
+<li>声明前加virtual，定义不用加。</li>
+<li>如果方法是通过引用或指针而不是对象调用的，程序将根据引用或指针指向的对象的类型来选择方法。反之如果没用virtual声明，程序直接使用声明的对象的类型的方法。</li>
+<li>如果没有加virtual(一般方法)，那么程序将根据引用或指针的类型来选择方法。</li>
+<li>友元函数不能是虚函数，因为友元函数不是类成员，而只有成员函数才能是虚函数。</li>
+<li><p>可以创建指向基类的指针数组，那么这个数组既可以指向基类，也可以指向派生类。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">Base <span class="title">b</span><span class="params">(<span class="number">10</span>, <span class="number">20</span>)</span></span>;</span><br><span class="line">	<span class="function">Point <span class="title">x</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span></span>;</span><br><span class="line">	Base* bs[<span class="number">3</span>];</span><br><span class="line">	bs[<span class="number">0</span>] = <span class="keyword">new</span> Base(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">	bs[<span class="number">1</span>] = &amp;x;</span><br><span class="line">	bs[<span class="number">2</span>] = &amp;b;</span><br><span class="line">	rep(i, <span class="number">0</span>, <span class="number">3</span>) bs[i]-&gt;show(), <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">output:</span></span><br><span class="line"><span class="comment">1 2</span></span><br><span class="line"><span class="comment">1 2 3</span></span><br><span class="line"><span class="comment">10 20</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>注意</strong>:基类需要声明一个虚析构函数，这样做是为了保证在释放对象时，可以调用相应对象类型的析构函数。</p>
+</li>
+<li>没有重新定义</li>
+<li><ul>
+<li>重新定义一个不接受参数的show函数，那么将会隐藏同名基类的方法。</li>
+</ul>
+</li>
+<li><ul>
+<li>两条经验规则</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>如果重新定义继承的方法，应确保与原来的原型完全相同。    </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>如果返回类型是基类引用或指针，则可以修改为指向派生类的引用或指针(这种例外是新出现的)。这种特性被称为返回类型协变。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">int</span> a)</span><span class="keyword">const</span></span>;</span><br><span class="line">...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> :</span> <span class="keyword">public</span> Base</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span><span class="keyword">const</span></span>;</span><br><span class="line">...</span><br><span class="line">&#125;;</span><br><span class="line">Point tmp;</span><br><span class="line">tmp.show()<span class="comment">//valid</span></span><br><span class="line">tmp.show(<span class="number">1</span>);<span class="comment">//invalid</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="静态联编和动态联编"><a href="#静态联编和动态联编" class="headerlink" title="静态联编和动态联编"></a>静态联编和动态联编</h3><ul>
+<li>将源代码中的函数调用解释为执行特定的函数代码块被称为函数名联编。</li>
+<li>函数重载和函数模板C/C++编译器可以在编译过程完成这种联编。在编译过程中进行联编被称为静态联编。</li>
+<li>虚函数，因为编译器不知道用户将选择哪种类型的对象。所以编译器必须生成能够在程序运行时选择正确的虚函数方法，这被称为动态联编。</li>
+<li>C++默认选择为静态联编，因为效率更高。</li>
+</ul>
+<hr>
+<h3 id="虚函数的实现原理"><a href="#虚函数的实现原理" class="headerlink" title="虚函数的实现原理"></a>虚函数的实现原理</h3><ul>
+<li>给每个对象添加一个隐藏成员。隐藏成员中保存了一个指向函数地址数组的指针。</li>
+<li>该地址数组称为虚函数表。</li>
+<li>对于基类来说，基类对象包含了一个指针，该指针指向基类中所有虚函数的地址表。</li>
+<li>对于派生类来说，派生类对象也包含了一个指针，该指针指向派生类中所有虚函数的地址表。</li>
+<li><ul>
+<li>如果派生类没有重新定义某虚函数，则此表保留此虚函数基类版本的地址。</li>
+</ul>
+</li>
+<li><ul>
+<li>如果派生类重新定义了某虚函数，则此表将更新此虚函数的新地址。</li>
+</ul>
+</li>
+<li><ul>
+<li>如果派生类增加了新的虚函数，则此表也增加该函数的地址。</li>
+</ul>
+</li>
+<li>不管虚函数有多少个，都只需要在对象里添加一个指针成员。</li>
+<li>调用虚函数时：</li>
+<li><ul>
+<li>程序将查看存储在对象中的虚函数表头地址。</li>
+</ul>
+</li>
+<li><ul>
+<li>然后转身相应的函数地址表。</li>
+</ul>
+</li>
+<li><ul>
+<li>然后根据该虚函数在类中声明的位置找到其在表中的位置。</li>
+</ul>
+</li>
+<li><ul>
+<li>然后跳到该地址指向的函数地址，执行函数。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="抽象基类-abc"><a href="#抽象基类-abc" class="headerlink" title="抽象基类(abc)"></a>抽象基类(abc)</h3><ul>
+<li>abstract base class</li>
+<li><p>使用纯虚函数提供未实现的函数 – 在声明的结尾处加 =0</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">      ...;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">get_area</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>包含纯虚函数的类只用作基类 ,不能实例化 , 但是能声明(但不初始化)指针。</p>
+</li>
+<li>即ABC必须至少包含一个纯虚函数。</li>
+<li>如果在基类中声明了纯虚函数，而派生类中并没有对其定义，则该函数仍为纯虚函数，派生类也为抽象类。</li>
+<li>基类中也可以定义(实现)纯虚函数，但在派生类中必需也要定义并且显示地调用(使用类名限定符)。</li>
+<li><ul>
+<li>这样可以将不同子类中公共的事务放在父类中完成。</li>
+</ul>
+</li>
+<li><ul>
+<li>只有声明而没有定义的纯虚函数派生类是无法调用的。</li>
+</ul>
+</li>
+<li><ul>
+<li>如果要把基类的析构函数声明为纯虚函数(有时候这么做只是为了说明此类为抽象类)，则必须定义这个纯虚析构函数的实现 ，因为派生类析构时会自动调用它。</li>
+</ul>
+</li>
+<li>纯虚函数作为一种“接口约定”， 在基于组件的编程模式中很常见。</li>
+<li><ul>
+<li>派生组件至少会实现基类组件的所有接口(纯虚函数)。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="继承和动态内存分配"><a href="#继承和动态内存分配" class="headerlink" title="继承和动态内存分配"></a>继承和动态内存分配</h3><p><strong>如果基类使用了动态内存分配 – 即在构造中使用new分配空间</strong></p>
+<ul>
+<li>该基类需要声明其构造函数， 析构函数，复制构造，赋值运算符。</li>
+</ul>
+<p><strong>如果此时派生类中没有使用new分配的内存</strong></p>
+<ul>
+<li>此派生类默认的复制构造会显式地调用基类的复制构造， 同时根据成员变量类型进行复制。</li>
+<li>此派生类默认的赋值运算符会显式地调用基类的赋值运算符。</li>
+<li>此派生类不需要显示定义构造函数， 析构函数，复制构造，赋值运算符。</li>
+</ul>
+<p><strong>如果子类使用new分配的内存</strong></p>
+<ul>
+<li>必须为子类定义显式析构函数。</li>
+<li>必须为子类定义复制构造函数。</li>
+<li><ul>
+<li>基类的复制构造函数中的参数是基类的引用，所以可以传递进来派生类对象。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Point::Point(<span class="keyword">const</span> Point &amp;a):Base(a)	</span><br><span class="line">&#123;</span><br><span class="line">	z=a.z;</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>必须为子类重载赋值运算符。</p>
+</li>
+<li><ul>
+<li>显式调用基类的赋值运算符，以完成基类部分的赋值。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String&amp; String::<span class="keyword">operator</span>=(<span class="keyword">const</span> String&amp; s) &#123;    </span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">this</span> == &amp;s) <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">Base::<span class="keyword">operator</span>=(s);             <span class="comment">// 注意此句 -- 必须显示调用基类的赋值运算符</span></span><br><span class="line"><span class="keyword">delete</span>[] str;                           </span><br><span class="line">len = s.len;</span><br><span class="line">str = <span class="keyword">new</span> <span class="keyword">char</span>[len+<span class="number">1</span>];</span><br><span class="line"><span class="built_in">strcpy</span>(str, s.str);</span><br><span class="line"><span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="继承与友元函数"><a href="#继承与友元函数" class="headerlink" title="继承与友元函数"></a>继承与友元函数</h3><ul>
+<li>在派生类的友元函数中， 只能访问派生类的派生部分，而不能访问基类的私有成员。</li>
+<li>可使用基类的友元函数来负责对派生类的基类部分的访问。</li>
+<li>因为友元函数不是成员函数，不能使用作用域解析运算符，因此需要强制类型转换。</li>
+</ul>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Program/" rel="tag"># Program</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/20/new和malloc的区别/" rel="next" title="new和malloc的区别">
+                <i class="fa fa-chevron-left"></i> new和malloc的区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/22/C++PrimerPlus学习之C++中的代码重用/" rel="prev" title="C++PrimerPlus学习之 C++中的代码重用">
+                C++PrimerPlus学习之 C++中的代码重用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/64938469_p0.jpg" alt="Kzpx">
+            
+              <p class="site-author-name" itemprop="name">Kzpx</p>
+              <p class="site-description motion-element" itemprop="description">Hello the cruel world.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Kzpx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/linw7/Skill-Tree" title="Ali-CsNotes" target="_blank">Ali-CsNotes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_34921856" title="Gstnt" target="_blank">Gstnt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/Deadline/" title="Deadline" target="_blank">Deadline</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://acm.ecnu.edu.cn/wiki/index.php?title=ECNU_Foreigners_(2018)" title="ecnu" target="_blank">ecnu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/liangzhaoyang1/article/list/" title="Lzy" target="_blank">Lzy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://oi.men.ci/" title="Menci" target="_blank">Menci</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/kuangbin/category/311579.html" title="kuangbin" target="_blank">kuangbin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/meopass?t=1" title="meopass" target="_blank">meopass</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_38891827" title="biubiubiu" target="_blank">biubiubiu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tokitsukaze.live/" title="tokitsukaze" target="_blank">tokitsukaze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cubercsl.cn/" title="cubercsl" target="_blank">cubercsl</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/clrs97/" title="Claris" target="_blank">Claris</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hzwer.com/" title="hzwer" target="_blank">hzwer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/qscqesze/" title="qscqesze" target="_blank">qscqesze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wiki.icpc.camp/" title="ICPCCamp" target="_blank">ICPCCamp</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zyfzyf/" title="ZYF" target="_blank">ZYF</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.xehoth.cc/" title="xehoth" target="_blank">xehoth</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/shinianhuanniyijuhaojiubujian/" title="Ocean" target="_blank">Ocean</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/mrbird_to_fly" title="MrBird_to_fly" target="_blank">MrBird_to_fly</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/xingkongyihao/" title="starry_sky" target="_blank">starry_sky</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://vjudge.net/article/547" title="Multi-school AC>=20" target="_blank">Multi-school AC>=20</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/snowy_smile" title="snowy_smile" target="_blank">snowy_smile</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zzqsblog/" title="fjzzq2002" target="_blank">fjzzq2002</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#公有派生"><span class="nav-number">1.</span> <span class="nav-text">公有派生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态-动态多态"><span class="nav-number">2.</span> <span class="nav-text">多态-动态多态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写基类方法"><span class="nav-number">2.2.</span> <span class="nav-text">重写基类方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现多态公有继承的两种方法"><span class="nav-number">3.</span> <span class="nav-text">实现多态公有继承的两种方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚函数"><span class="nav-number">4.</span> <span class="nav-text">虚函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态联编和动态联编"><span class="nav-number">5.</span> <span class="nav-text">静态联编和动态联编</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚函数的实现原理"><span class="nav-number">6.</span> <span class="nav-text">虚函数的实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象基类-abc"><span class="nav-number">7.</span> <span class="nav-text">抽象基类(abc)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承和动态内存分配"><span class="nav-number">8.</span> <span class="nav-text">继承和动态内存分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承与友元函数"><span class="nav-number">9.</span> <span class="nav-text">继承与友元函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kzpx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

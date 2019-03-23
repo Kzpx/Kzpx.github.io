@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+  <script>
+    (function(){
+        if(''){
+            if (prompt('��������������') !== ''){
+                alert('�������');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Program,C++,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="加油鸭">
+<meta name="keywords" content="Program,C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Primer Plus知识点">
+<meta property="og:url" content="https://kzpx.github.io/2018/12/17/C++ Primer Plus/index.html">
+<meta property="og:site_name" content="ymkzpx">
+<meta property="og:description" content="加油鸭">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-17T11:25:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Primer Plus知识点">
+<meta name="twitter:description" content="加油鸭">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kzpx.github.io/2018/12/17/C++ Primer Plus/">
+
+
+
+
+
+  <title>C++ Primer Plus知识点 | ymkzpx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ymkzpx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Success and failure are temporary.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kzpx.github.io/2018/12/17/C++ Primer Plus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kzpx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/64938469_p0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ymkzpx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++ Primer Plus知识点</h1>
+        
+
+        <div class="post-meta">
+                  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-17T19:25:04+08:00">
+                2018-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Program/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>加油鸭</p>
+<a id="more"></a>
+<hr>
+<p><strong>C++融合了3种不同的编程方式</strong></p>
+<p>C语言代表的过程性语言，C++在C语言基础上添加的类代表的面向对象语言(oop),C++模板支持的泛型编程。</p>
+<hr>
+<p><strong>C++11初始化方式</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//大括号初始化,等号可以使用，也可以不使用</span></span><br><span class="line"><span class="keyword">int</span> emus&#123;<span class="number">7</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> rheas=&#123;<span class="number">12</span>&#125;;</span><br><span class="line"><span class="comment">//大括号内不包含任何东西，这种情况下变量将被初始化为零</span></span><br><span class="line"><span class="keyword">int</span> rocs=&#123;&#125;;</span><br><span class="line"><span class="keyword">int</span> psychics&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>C++存储整型的方式类似一个圈，负数存的是补码。</strong></p>
+<hr>
+<p><strong>第一位为1-9，则基数为10(十进制)，第一位为0，则基数为8(8进制)，前两位为0x或0X,则基数为16。</strong></p>
+<hr>
+<p><strong>cout的一些特殊特性</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">cout提供了控制符dec,hex,oct分别用于指示cout以十进制，</span></span><br><span class="line"><span class="comment">十六进制和八进制格式显示整数。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">int</span> tmp=<span class="number">42</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;tmp&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;hex;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;tmp&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;oct;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;tmp&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>C++11强制类型转换运算符static_cast &lt; typeName&gt;(value)</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用要求更为严格</span></span><br><span class="line"> <span class="keyword">char</span> c=<span class="string">'c'</span>;</span><br><span class="line"> <span class="built_in">cout</span>&lt;&lt;<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(c)&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>cin.get() 会留下换行符， cin.getline() 不会留下换行符</strong></p>
+<hr>
+<p><strong>C++11新增的另一种类型:原始(raw)字符串</strong></p>
+<p>典型的不同是”\n”可以直接表示”\n”而不是换行。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">R"(Jim "King" Tutt uses "\n" instead of endl.)"</span>&lt;&lt;<span class="string">'\n'</span>;</span><br><span class="line">    <span class="comment">//输出 Jim "King" Tutt uses \n instead of endl.</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>共用体</strong></p>
+<p>结构体可以同时存储int,long和double，共用体只能存储int,long或double。<br>共用体每次只能存储一个值，因此它必须有足够的空间来存储最大的成员，所以，共用体的长度为其最大的成员的长度。</p>
+<hr>
+<p><strong>C++结构体种的位字段</strong></p>
+<p>C++允许指定占用特定位数的结构成员，这使得创建与某个硬件设备上的寄存器对应的数据结构非常方便。字段的类型应为整型或者枚举，接下来是冒号，冒号后面跟着一个数字，它制定了位数。可以使用没有名称的字段提供间距。每个成员都被称为位字段。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">torgle_register</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> SN : <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> : <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">bool</span> goodIn : <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">bool</span> goodTorgle : <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line">torgle_register tr = &#123;<span class="number">14</span>,<span class="literal">true</span>,<span class="literal">false</span>&#125;;</span><br><span class="line"><span class="keyword">if</span>(tr.goodIn)<span class="built_in">puts</span>(<span class="string">"Yes"</span>);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>一定要在对指针应用解除引用运算符($*$) 之前，将一个确定的、适当的地址。</strong></p>
+<hr>
+<p><strong>只能用 delete 来释放使用 new 分配的内存</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="keyword">new</span> <span class="keyword">int</span>;</span><br><span class="line"><span class="keyword">int</span> *p=&amp;a;</span><br><span class="line"><span class="keyword">delete</span> p; <span class="comment">// 错误的！</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>delete 删除只释放指针指向的内存，但不会删除指针本身。</strong></p>
+<hr>
+<p><strong>使用 new 创建动态数组，new 运算符返回第一个元素的地址。</strong></p>
+<hr>
+<p><strong>指针</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p=<span class="string">"abc"</span>; <span class="comment">// 将字符串"abc"的地址赋给指针p</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;p&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;*p&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;&amp;p&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//输出:</span></span><br><span class="line"> p: abc <span class="comment">// 指针存储的元素</span></span><br><span class="line">*p: a   <span class="comment">// 指针存储的首元素</span></span><br><span class="line">&amp;p: <span class="number">0x6dfefc</span> <span class="comment">// 指针的首地址</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>指针占用多少空间</strong></p>
+<p>指针不同于一般变量，存的是变量的地址，在同一架构下地址长度都是相同的（cpu的最大寻址内存空间），所以不同类型的指针长度都一样。</p>
+<p>32 位系统指针占 4 个字节。<br>64 位系统指针占 8 个字节。</p>
+<hr>
+<p><strong>指针和字符串</strong></p>
+<ul>
+<li>如果给 cout 提供一个字符的地址，则它将从该字符开始打印，直至遇到空字符为止。如果给 cout 提供一个实数的地址，则输出地址。 </li>
+<li>在 C++ 中，用引号括起的字符串像数组名一样，也是第一个元素的地址。</li>
+</ul>
+<hr>
+<p><strong>sizeof运算符和指针，数组之间的关系</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p=<span class="string">"abc"</span>; </span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(p)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//指针长度，一律返回4</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(*p)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//字符长度，1个字节</span></span><br><span class="line"><span class="keyword">char</span> a[]=<span class="string">"abcdef"</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(a)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//数组长度 7</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(&amp;a)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//指针长度，一律返回4</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(*a)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//字符长度，1个字节</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>成员运算符”.” 和 间接成员运算符”-&gt;”</strong></p>
+<p>成员运算符一般和结构或者联合名一起使用，指定结构或者联合中的某个成员。<br>间接成员运算符和指向结构或者联合的指针一起使用，标识结构或者联合中的某个成员。</p>
+<p>“.”优先级高于”*”。</p>
+<p>例如：$\rm (*ptd).x$</p>
+<hr>
+<p><strong>自动存储、静态存储和动态存储</strong></p>
+<ul>
+<li>自动存储$:$ 常见的有局部变量，也成为自动变量，自动变量通常存储在栈中。</li>
+<li>静态存储：常见的有全局变量和 static 声明的变量，通常存储在栈中全局区(静态区)。</li>
+<li>动态存储：new 和 delete 的存储方法，通常存储在自由存储空间或堆。</li>
+</ul>
+<hr>
+<p><strong>类型组合</strong>(p118)</p>
+<p>其中数组指针不明白。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span></span></span><br><span class="line"><span class="class">   &#123;</span></span><br><span class="line">       <span class="keyword">int</span> year;</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="comment">//变量</span></span><br><span class="line">   student a1,a2,a3;</span><br><span class="line">   a1.year=<span class="number">2003</span>;</span><br><span class="line">   a2.year=<span class="number">2005</span>;</span><br><span class="line">   <span class="comment">//数组</span></span><br><span class="line">   student t[<span class="number">3</span>];</span><br><span class="line">   t[<span class="number">0</span>].year=<span class="number">2003</span>;</span><br><span class="line">   (t+<span class="number">1</span>)-&gt;year=<span class="number">2004</span>;</span><br><span class="line">   <span class="comment">//指针数组</span></span><br><span class="line">   <span class="keyword">const</span> student *b[<span class="number">3</span>]=&#123;&amp;a1,&amp;a2,&amp;a3&#125;;</span><br><span class="line">   <span class="built_in">cout</span>&lt;&lt;b[<span class="number">0</span>]-&gt;year&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">   <span class="comment">//数组指针</span></span><br><span class="line">   <span class="keyword">const</span> student **c=b;</span><br><span class="line">   <span class="built_in">cout</span>&lt;&lt;(*c)-&gt;year&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">   <span class="built_in">cout</span>&lt;&lt;c[<span class="number">0</span>]-&gt;year&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+<p><strong>基于范围的for循环(C++11)</strong>(P152)<br>C++新增一种循环，基于范围(range-based)的for循环。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> prices[<span class="number">5</span>]=&#123;<span class="number">4.99</span>,<span class="number">1.99</span>,<span class="number">6.87</span>,<span class="number">7.99</span>,<span class="number">8.49</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">double</span> x:prices)</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;x&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//要修改数组的元素，需要使用不同的循环变量语法</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">double</span> &amp;x:prices)</span><br><span class="line">    x=x*<span class="number">0.8</span>;</span><br><span class="line"><span class="comment">//还可以使用基于范围的for循环和初始化列表</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> x:&#123;<span class="number">3</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">6</span>&#125;)</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;x&lt;&lt;<span class="string">' '</span>;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>文件尾条件(P155)</strong></p>
+<p>输入来自于键盘。</p>
+<p>在Unix中，可以在行首按下Ctrl+D来实现。</p>
+<p>在Windows命令提示符模式下，可以在任意位置按Ctr+Z和Enter。</p>
+<p><strong>cin.get()有两种用法，一种ch=cin.get(),一种cin.get(ch)</strong></p>
+<hr>
+<p><strong>写入及读取文件</strong></p>
+<p>不同于C标准库头文件中的函数 freopen， C++ 有自己的写入及读取文件函数 fstream。<br>写入： ofstream<br>读取： ifstream<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//写入</span></span><br><span class="line">ofstream outFile;</span><br><span class="line"> <span class="comment">//  ofstream fout;</span></span><br><span class="line">   outFile.open(<span class="string">"D:\\duipai\\fish.txt"</span>);</span><br><span class="line">   <span class="keyword">char</span> s[<span class="number">30</span>];</span><br><span class="line">   <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s);</span><br><span class="line">   <span class="comment">//fout.open(s);</span></span><br><span class="line">   outFile&lt;&lt;<span class="string">"hello world"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">   outFile.close();</span><br><span class="line"> <span class="comment">// fout.close();</span></span><br><span class="line">   <span class="comment">//读取</span></span><br><span class="line">   ifstream inFile;</span><br><span class="line">   <span class="comment">//ifstream fin;</span></span><br><span class="line">   inFile.open(<span class="string">"D:\\duipai\\fish.txt"</span>);</span><br><span class="line">   <span class="keyword">if</span>(!inFile.is_open())</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="built_in">puts</span>(<span class="string">"Error"</span>);</span><br><span class="line">       <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">while</span>(inFile&gt;&gt;s)</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">     <span class="comment">//  cout&lt;&lt;s&lt;&lt;endl;</span></span><br><span class="line">   &#125;</span><br><span class="line">   inFile.close();</span><br><span class="line">   <span class="comment">//fin.close();</span></span><br><span class="line">   <span class="comment">/*</span></span><br><span class="line"><span class="comment">   fish.txt</span></span><br><span class="line"><span class="comment">   hello </span></span><br><span class="line"><span class="comment">   world</span></span><br><span class="line"><span class="comment">   */</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>使用数组区间的函数(P220)</strong><br>迭代器原型<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum_arr</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> *begin,<span class="keyword">const</span> <span class="keyword">int</span> *end)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tot=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">const</span> <span class="keyword">int</span> *pt=begin;pt!=end;pt++)</span><br><span class="line">        tot=tot+*pt;</span><br><span class="line">    <span class="keyword">return</span> tot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    sum[<span class="number">0</span>]=<span class="number">1</span>,sum[<span class="number">1</span>]=<span class="number">2</span>;sum[<span class="number">2</span>]=<span class="number">3</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;sum_arr(sum,sum+<span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>const和指针</strong></p>
+<p>const和指针有两种组合方式，表示的含义不一样。</p>
+<p>指向常量的指针：防止使用指针来修改所指向的值。</p>
+<p>常量指针：防止改变指针指向的位置。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 指向常量的指针</span></span><br><span class="line"><span class="comment">// pt的什么并不意味着指向的值是一个常量，而只是意味着对pt而言，这个值是一个常量，因此我们可以通过age变量来修改age的值，但不能用pt指针来修改它。但可以修搞pt，即赋一个新的地址给pt。</span></span><br><span class="line"><span class="keyword">int</span> age=<span class="number">39</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *pt = &amp;age;</span><br><span class="line"></span><br><span class="line"><span class="comment">// C++禁止将const的地址赋给非const指针。</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> age2=<span class="number">30</span>;</span><br><span class="line"><span class="keyword">int</span> *p2=&amp;age2;<span class="comment">//invalid</span></span><br></pre></td></tr></table></figure>
+<p>如果指针指向指针，情况更复杂。<br>假设涉及的是一级间接关系，则将非const指针赋给const指针是可以的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 常量指针</span></span><br><span class="line"><span class="keyword">int</span> a=<span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> b=&amp;a;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>函数指针</strong><br>声明时函数指针的返回类型以及参数列表和函数必须一样。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">pam</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="keyword">double</span> (*pf)(<span class="keyword">int</span>);</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    pf=pam;</span><br><span class="line">    <span class="keyword">double</span> x=pam(<span class="number">4</span>);</span><br><span class="line">    <span class="keyword">double</span> y=(*pf)(<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;y&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    y=pf(<span class="number">5</span>);<span class="comment">//这样写也行</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;y&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">pam</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1.0</span>*a*a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>C++提供了许多新的函数特性，包括内联函数，按引用传递变量，默认的参数值，函数重载(多态)以及模板函数。</strong></p>
+<hr>
+<p><strong>内联函数</strong><br>内联函数的编译代码与其他的程序代码“内联”到一块，对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。<br>应有选择的使用内联函数。如果执行函数代码的时间比处理函数调用机制的时间长，则节省的时间只占一小部分。如果代码执行时间很短，则内联调用就可以节省非内联调用使用的大部分时间。</p>
+<hr>
+<p><strong>临时变量，引用参数和const</strong>(P262)</p>
+<p>如果引用参数是const，则编译器将在下面两种情况下生成临时变量:</p>
+<ul>
+<li>实参的类型正确，但不是左值。</li>
+<li>实参的类型不正确，但可以转换成正确的类型。</li>
+</ul>
+<p><strong>左值</strong>:  左值参数是可被引用的数据对象，例如，变量，数组元素，结构成员，引用和解除引用的指针都是左值。非左值包括字面常量(用引号括起的字符串除外，它们由其地址表示)和包含多项的表达式。在C语言中，左值最初指的是可出现在赋值语句左边的实体，但这是引入关键字const之前的情况。现在，常规变量和const变量都可视为左值，因为可通过地址访问他们。但常规变量属于可修改的左值，而const变量属于不可修改的左值。</p>
+<p>简而言之，如果接受引用参数的函数的意图是修改作为参数传递的变量，则创建临时变量将阻止这种意图的实现。解决方法是，禁止这么做。现在C++标准正是这样。<br>如果只是使用传递的值，而不是修改它们，因此临时变量不会造成任何不利的影响，反而会使函数在可处理的参数种类方面更通用。</p>
+<hr>
+<p><strong>继承特征</strong></p>
+<ul>
+<li>派生类继承了基类的方法(如ofstream继承了ostream，ofstream可以使用ostream的一些方法)。</li>
+<li>基类引用可以指向派生类对象，而无需进行强制类型转换。<a href="https://blog.csdn.net/u011939264/article/details/52175504" target="_blank" rel="noopener">原因</a></li>
+</ul>
+<hr>
+<p><strong>C++如何跟踪每一个重载函数</strong></p>
+<p>C++编译器将执行一些神奇的操作-名称修饰或名称矫正。它会根据函数原型中指定的形参类型对每个函数名进行加密。</p>
+<hr>
+<p><strong>宏定义</strong></p>
+<ul>
+<li>C语言使用 #define 提供宏定义。</li>
+<li>宏在编译时完成替换，之后被替换的文本参与编译，相当于直接插入了代码，运行时不存在函数调用。</li>
+<li>宏函数属于在结构中插入代码，没有返回值。</li>
+<li>宏函数参数没有类型，不进行类型检查。</li>
+<li>宏函数不要在最后加分号。</li>
+</ul>
+<hr>
+<p><strong>NULL 和 nullptr 区别和联系</strong></p>
+<ul>
+<li>首先NULL 和 nullptr都表示空指针。常数 0 也表示空指针。</li>
+<li>C++中NULL代表着0。</li>
+<li>C++中$\rm void*$ 类型是不允许隐式转换成其他类型的。所以，C++11加入了nullptr，可以保证在任何情况下都代表空指针，而不会出现下面代码的情况。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">void</span>* t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"func1"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"func2"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    func(<span class="literal">NULL</span>);</span><br><span class="line">    func(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">输出：</span><br><span class="line">func2</span><br><span class="line">func1</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>关键字extern</strong></p>
+<p>多个文件中使用外部变量，只需要在一个文件中包含该变量的定义，但在使用该变量的其他的所有文件中，都必须使用关键字声明他。</p>
+<hr>
+<p><strong>命名空间namespace</strong><br>namespace主要用于解决“命名冲突”问题。</p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Program/" rel="tag"># Program</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/13/海量数据处理/" rel="next" title="海量数据处理">
+                <i class="fa fa-chevron-left"></i> 海量数据处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/17/C++常考知识点总结/" rel="prev" title="C++常考知识点总结">
+                C++常考知识点总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/64938469_p0.jpg" alt="Kzpx">
+            
+              <p class="site-author-name" itemprop="name">Kzpx</p>
+              <p class="site-description motion-element" itemprop="description">Hello the cruel world.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Kzpx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/linw7/Skill-Tree" title="Ali-CsNotes" target="_blank">Ali-CsNotes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_34921856" title="Gstnt" target="_blank">Gstnt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/Deadline/" title="Deadline" target="_blank">Deadline</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://acm.ecnu.edu.cn/wiki/index.php?title=ECNU_Foreigners_(2018)" title="ecnu" target="_blank">ecnu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/liangzhaoyang1/article/list/" title="Lzy" target="_blank">Lzy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://oi.men.ci/" title="Menci" target="_blank">Menci</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/kuangbin/category/311579.html" title="kuangbin" target="_blank">kuangbin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/meopass?t=1" title="meopass" target="_blank">meopass</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_38891827" title="biubiubiu" target="_blank">biubiubiu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tokitsukaze.live/" title="tokitsukaze" target="_blank">tokitsukaze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cubercsl.cn/" title="cubercsl" target="_blank">cubercsl</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/clrs97/" title="Claris" target="_blank">Claris</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hzwer.com/" title="hzwer" target="_blank">hzwer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/qscqesze/" title="qscqesze" target="_blank">qscqesze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wiki.icpc.camp/" title="ICPCCamp" target="_blank">ICPCCamp</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zyfzyf/" title="ZYF" target="_blank">ZYF</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.xehoth.cc/" title="xehoth" target="_blank">xehoth</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/shinianhuanniyijuhaojiubujian/" title="Ocean" target="_blank">Ocean</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/mrbird_to_fly" title="MrBird_to_fly" target="_blank">MrBird_to_fly</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/xingkongyihao/" title="starry_sky" target="_blank">starry_sky</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://vjudge.net/article/547" title="Multi-school AC>=20" target="_blank">Multi-school AC>=20</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/snowy_smile" title="snowy_smile" target="_blank">snowy_smile</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zzqsblog/" title="fjzzq2002" target="_blank">fjzzq2002</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kzpx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

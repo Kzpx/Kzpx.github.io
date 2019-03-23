@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+  <script>
+    (function(){
+        if(''){
+            if (prompt('��������������') !== ''){
+                alert('�������');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ACM,codeforces,dp,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Difficulty: 1800 ~ 2200Tag : dp">
+<meta name="keywords" content="ACM,codeforces,dp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces题目泛做 dp">
+<meta property="og:url" content="https://kzpx.github.io/2018/12/28/Codeforces题目泛做dp/index.html">
+<meta property="og:site_name" content="ymkzpx">
+<meta property="og:description" content="Difficulty: 1800 ~ 2200Tag : dp">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-28T13:53:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Codeforces题目泛做 dp">
+<meta name="twitter:description" content="Difficulty: 1800 ~ 2200Tag : dp">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kzpx.github.io/2018/12/28/Codeforces题目泛做dp/">
+
+
+
+
+
+  <title>Codeforces题目泛做 dp | ymkzpx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ymkzpx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Success and failure are temporary.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kzpx.github.io/2018/12/28/Codeforces题目泛做dp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kzpx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/64938469_p0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ymkzpx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Codeforces题目泛做 dp</h1>
+        
+
+        <div class="post-meta">
+                  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-28T21:53:54+08:00">
+                2018-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/codeforces/" itemprop="url" rel="index">
+                    <span itemprop="name">codeforces</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/codeforces/dp/" itemprop="url" rel="index">
+                    <span itemprop="name">dp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Difficulty: 1800 ~ 2200<br>Tag : dp</p>
+<a id="more"></a>
+<hr>
+<h3 id="1092F"><a href="#1092F" class="headerlink" title="1092F"></a>1092F</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>给一颗 $n$ 个节点的点权树，边权都为 $1$，问选择一个点 $v$，使得 $\sum_{i=1}^{n}(dis(i,v)·a_i)$ 最大( $a_i$ 为点权)<br>$(n \le 3·10^5)$</p>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>考虑一棵树，其父节点转移到儿子节点，就是除了当前儿子节点的子树，到当前子树距离增加 $1$，当前子树的距离都减少 $1$，所以维护出每个节点所在子树的权值和及当前根的和后，再从上到下转移维护最大值即可。</p>
+<hr>
+<h3 id="1083A"><a href="#1083A" class="headerlink" title="1083A"></a>1083A</h3><h4 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h4><p>给一颗 $n$ 个节点的树，点和边都有权值，选择一条 <strong>链</strong>，使得 <strong>点权和-边权和</strong> 最大。<br>$(n \le 3·10^5)$</p>
+<h4 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h4><p><strong>所有题一定要注意 $n=1$ 的情况！</strong></p>
+<p>一条链的话，一个显然的dp就是，从儿子转移到儿子，但注意子树内部也可以成一条链。</p>
+<p>若不要求一条 <strong>链</strong> 吧，则可以互相转移。</p>
+<hr>
+<h3 id="1067A"><a href="#1067A" class="headerlink" title="1067A"></a>1067A</h3><h4 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h4><p>给出 $n$ 个数的序列，其中一些数为-1(可以任意填充)，问使得<br>$a_1&lt;=a_2$<br>$a_i&lt;=max(a_{-1}, a_{i+1})(2&lt;=i&lt;=n-1)$<br>$a_{n-1}&gt;=a_n$<br>$(n \le 10^5)$<br>满足的方案数。$(\rm mod$ $998244353)$<br>$(n \le 10^5,1\le a_i\le 200)$</p>
+<h4 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h4><p>直接对每一位的情况进行 dp。<br>当前位置和前一位的关系有三种，分别讨论一下即可，注意要保证满足题目要求。</p>
+<p>定义 $\rm dp[i][j][0/1/2]$:第 $i$ 个数为 $j$ ( $0$ :小于前面一个数， $1$ :等于前面一个数， $2$  : 大于前面一个数)。</p>
+<p>remain code</p>
+<hr>
+<h3 id="1065D"><a href="#1065D" class="headerlink" title="1065D"></a>1065D</h3><h4 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h4><p>给出一个 $n · n$ 的矩阵，不重不漏地随机放着 $1$ 到 $n · n$ 的每个数。现在你站在数字 $1$ 的位置，每次可以有三种走法：</p>
+<ul>
+<li>走直线，四个方向。一次可以走多个单位，不仅只能走到相邻的位置，就像中国象棋里的车。</li>
+<li>走斜线，四个方向。一次可以走多个单位，像国际象棋里的象。</li>
+<li>走日字，八个方向，一次只能走一个单位。就像中国象棋里的马。</li>
+</ul>
+<p>每走一次，需要花费一个精力值。如果切换了一次走法，需要额外花费一个精力值。而且要求，必须先访问 $1$，再访问 $2$，然后是 $3$，以此类推，一直到 $n^2$，但是，在从 $i$ 走到 $i+1$ 的过程中，可以经过其它的点，比如在中途某个点停一下，换了走法，继续走。<br>问最少花费多少精力值可以走完 $n^2$ 个点。精力最小的时候要求切换走法次数也最少。<br>输出最小精力和最少切换走法次数。<br>$(n \le 10)$</p>
+<h4 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h4><p>状压 $\rm dp$</p>
+<ul>
+<li>定义: $dp[x][y][z][t][k]$ :表示在点    $(x,y)$ ，当前的走法为 $z$ ，已经换了 $t$ 中走法，已经到了 $k$ 个点的最小消耗。</li>
+<li>转移：暴力 $bfs$ 转移即可。</li>
+</ul>
+<hr>
+<h3 id="1036C"><a href="#1036C" class="headerlink" title="1036C"></a>1036C</h3><h4 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h4><p>问区间 $\rm [l,r]$ 的数，满足非 $0$ 位数小于等于 $3$ 的数量。<br>$\rm (1\le l\le 10^{18})$</p>
+<h4 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h4><p>经典的状压 dp </p>
+<hr>
+<h3 id="1025D"><a href="#1025D" class="headerlink" title="1025D"></a>1025D</h3><h4 id="题意-5"><a href="#题意-5" class="headerlink" title="题意"></a>题意</h4><p>给出 $n$ 个数的上升序列，若两个数的 $gcd&gt;1$ 则可以连边，问这 $n$ 个数是否可以构成二叉搜索树。<br>二叉搜索树：左子树小于当前节点，右子树大于当前节点。<br>$(n \le 700，2 \le a_i \le 10^9)$</p>
+<h4 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h4><hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ACM/" rel="tag"># ACM</a>
+          
+            <a href="/tags/codeforces/" rel="tag"># codeforces</a>
+          
+            <a href="/tags/dp/" rel="tag"># dp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/25/Codeforces528/" rel="next" title="Codeforces Round 528 (Div. 2)">
+                <i class="fa fa-chevron-left"></i> Codeforces Round 528 (Div. 2)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/30/C++后端开发学习/" rel="prev" title="C++后端开发学习">
+                C++后端开发学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/64938469_p0.jpg" alt="Kzpx">
+            
+              <p class="site-author-name" itemprop="name">Kzpx</p>
+              <p class="site-description motion-element" itemprop="description">Hello the cruel world.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Kzpx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/linw7/Skill-Tree" title="Ali-CsNotes" target="_blank">Ali-CsNotes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_34921856" title="Gstnt" target="_blank">Gstnt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/Deadline/" title="Deadline" target="_blank">Deadline</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://acm.ecnu.edu.cn/wiki/index.php?title=ECNU_Foreigners_(2018)" title="ecnu" target="_blank">ecnu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/liangzhaoyang1/article/list/" title="Lzy" target="_blank">Lzy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://oi.men.ci/" title="Menci" target="_blank">Menci</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/kuangbin/category/311579.html" title="kuangbin" target="_blank">kuangbin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/meopass?t=1" title="meopass" target="_blank">meopass</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_38891827" title="biubiubiu" target="_blank">biubiubiu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tokitsukaze.live/" title="tokitsukaze" target="_blank">tokitsukaze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cubercsl.cn/" title="cubercsl" target="_blank">cubercsl</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/clrs97/" title="Claris" target="_blank">Claris</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hzwer.com/" title="hzwer" target="_blank">hzwer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/qscqesze/" title="qscqesze" target="_blank">qscqesze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wiki.icpc.camp/" title="ICPCCamp" target="_blank">ICPCCamp</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zyfzyf/" title="ZYF" target="_blank">ZYF</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.xehoth.cc/" title="xehoth" target="_blank">xehoth</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/shinianhuanniyijuhaojiubujian/" title="Ocean" target="_blank">Ocean</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/mrbird_to_fly" title="MrBird_to_fly" target="_blank">MrBird_to_fly</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/xingkongyihao/" title="starry_sky" target="_blank">starry_sky</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://vjudge.net/article/547" title="Multi-school AC>=20" target="_blank">Multi-school AC>=20</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/snowy_smile" title="snowy_smile" target="_blank">snowy_smile</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zzqsblog/" title="fjzzq2002" target="_blank">fjzzq2002</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1092F"><span class="nav-number">1.</span> <span class="nav-text">1092F</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">1.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1083A"><span class="nav-number">2.</span> <span class="nav-text">1083A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-1"><span class="nav-number">2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-1"><span class="nav-number">2.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1067A"><span class="nav-number">3.</span> <span class="nav-text">1067A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-2"><span class="nav-number">3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-2"><span class="nav-number">3.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1065D"><span class="nav-number">4.</span> <span class="nav-text">1065D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-3"><span class="nav-number">4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-3"><span class="nav-number">4.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1036C"><span class="nav-number">5.</span> <span class="nav-text">1036C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-4"><span class="nav-number">5.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-4"><span class="nav-number">5.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1025D"><span class="nav-number">6.</span> <span class="nav-text">1025D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-5"><span class="nav-number">6.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-5"><span class="nav-number">6.2.</span> <span class="nav-text">题解</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kzpx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

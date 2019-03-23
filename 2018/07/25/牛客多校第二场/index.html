@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+  <script>
+    (function(){
+        if(''){
+            if (prompt('��������������') !== ''){
+                alert('�������');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Multi-school,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="补题进度：5/9(11) 写两个签到，就趴在地上起不来了，睡了一觉起来，不想做i，拿着j不知所措，想了一下专题的问题，就结束了，好像被多校打的有点失去自我了啊">
+<meta name="keywords" content="Multi-school">
+<meta property="og:type" content="article">
+<meta property="og:title" content="牛客多校第二场">
+<meta property="og:url" content="https://kzpx.github.io/2018/07/25/牛客多校第二场/index.html">
+<meta property="og:site_name" content="ymkzpx">
+<meta property="og:description" content="补题进度：5/9(11) 写两个签到，就趴在地上起不来了，睡了一觉起来，不想做i，拿着j不知所措，想了一下专题的问题，就结束了，好像被多校打的有点失去自我了啊">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-25T09:54:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="牛客多校第二场">
+<meta name="twitter:description" content="补题进度：5/9(11) 写两个签到，就趴在地上起不来了，睡了一觉起来，不想做i，拿着j不知所措，想了一下专题的问题，就结束了，好像被多校打的有点失去自我了啊">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kzpx.github.io/2018/07/25/牛客多校第二场/">
+
+
+
+
+
+  <title>牛客多校第二场 | ymkzpx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ymkzpx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Success and failure are temporary.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kzpx.github.io/2018/07/25/牛客多校第二场/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kzpx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/64938469_p0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ymkzpx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">牛客多校第二场</h1>
+        
+
+        <div class="post-meta">
+                  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-25T17:54:56+08:00">
+                2018-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/Multi-school/" itemprop="url" rel="index">
+                    <span itemprop="name">Multi-school</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>补题进度：5/9(11)</p>
+<p>写两个签到，就趴在地上起不来了，睡了一觉起来，不想做i，拿着j不知所措，想了一下专题的问题，就结束了，好像被多校打的有点失去自我了啊</p>
+<a id="more"></a>
+<hr>
+<h3 id="A-run"><a href="#A-run" class="headerlink" title="A.run"></a>A.run</h3><p>$dp_{i,0/1}$:分别表示是walk or run过来的方案数即可</p>
+<hr>
+<h3 id="B-discount"><a href="#B-discount" class="headerlink" title="B. discount"></a>B. discount</h3><p>待补</p>
+<hr>
+<h3 id="C-Fluorescent-2"><a href="#C-Fluorescent-2" class="headerlink" title="C.Fluorescent 2"></a>C.Fluorescent 2</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>有一个无线大的平面，平面上有n条斜率不为零的直线。<br>有m次询问，每次询问从y轴上的一个点出发往x轴正方向沿一条直线走，最后一个与这n条直线相交的点的<br>横坐标。<br>n,m&lt;=50000</p>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>待补</p>
+<hr>
+<h3 id="D-Two-Graphs"><a href="#D-Two-Graphs" class="headerlink" title="D.Two Graphs"></a>D.Two Graphs</h3><p>贪心即可</p>
+<hr>
+<h3 id="E-tree"><a href="#E-tree" class="headerlink" title="E.    tree"></a>E.    tree</h3><p>留坑</p>
+<hr>
+<h3 id="F-trade"><a href="#F-trade" class="headerlink" title="F.    trade"></a>F.    trade</h3><p>留坑</p>
+<hr>
+<h3 id="G-transform"><a href="#G-transform" class="headerlink" title="G.transform"></a>G.transform</h3><h4 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h4><p>数轴上有n个集装箱，第i个集装箱位于坐标x[i]，有a[i]件货物。<br>现在要把集装箱进行一些移动，从位置u到位置v的花费为$2*abs(x[u]-x[v])$, 求在所有货物移动总距离不超过T的情况下，最多能把多少个集装箱移动到同一个位置。</p>
+<h4 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h4><p>因为答案是单调的，可以二分答案。<br>由于最后的答案一定是一段区间数字移动到一起，可以直接枚举左端点，右端点是单调的。</p>
+<p><strong>那么问题转化为给一个区间，移动的花费是曼哈顿距离，怎么check得到这个区间的点移动到一起花费最小值?</strong></p>
+<p>这是一个经典问题，答案是所有位置的点的中位数。</p>
+<p>如1,2,2,5,所有点移到x=2最优</p>
+<p><strong>Trick</strong>：因为枚举的区间可能不是恰好mid个，左端点或者右端点肯定有一部分点取不到，枚举左端点是，mid左边可能不止左端点不取，但右端点一定是可以的，因为r-1的和&lt; mid 但r的和&gt;=mid 故要分别从左和从右端枚举。</p>
+<hr>
+<h3 id="H-Longest-Path"><a href="#H-Longest-Path" class="headerlink" title="H.    Longest Path"></a>H.    Longest Path</h3><h4 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h4><p>给一棵点权树，选出三条不相交的链使得三条链的权值之和最大</p>
+<h4 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h4><p><a href="https://www.nowcoder.com/discuss/88002?type=101&amp;order=0&amp;pos=3&amp;page=0" target="_blank" rel="noopener">tokitsukaze题解</a></p>
+<hr>
+<h3 id="I-Different-Integers"><a href="#I-Different-Integers" class="headerlink" title="I.    Different Integers"></a>I.    Different Integers</h3><p>找规律</p>
+<hr>
+<h3 id="J-farm"><a href="#J-farm" class="headerlink" title="J.farm"></a>J.farm</h3><h4 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h4><p>给一个 $n<em>m$ 的矩阵，每个点有一个值，现有T次处理，每次用 $k$ 处理矩阵的一个矩形区域，若k不等于每个点原来的值就失效，问T次处理后失效的格子数量 $(a_{ij}，T，n</em>m&lt;10^6)$</p>
+<h4 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h4><p>假如格子中的值和修改只有01，直接二维前缀和分别为何每个格子0和1的次数即可。</p>
+<p><strong>Trick:</strong></p>
+<ol>
+<li><p>可以把所有点离散化成一维<br>$$(x-1)*m + y-1$$</p>
+</li>
+<li><p>当然二维动态开vector也是可以的</p>
+</li>
+</ol>
+<p><strong>解法一：</strong><br>考虑每一个二进制位，对T个询问的k进行二进制01拆分，就变成了上面的问题<br>实测动态开vector TLE了</p>
+<p><strong>解法二：</strong><br>二维偏序</p>
+<p>对于每一种格子，我们若是统计出每个格子用相同的格子修改的次数，和每个格子总的修改次数进行比较便可以判断是否bad</p>
+<p>那么如何统计出每个格子用相同的格子修改的次数？</p>
+<p>不难看出，这是 $well-knowed$的二维偏序问题，对一维排序(x)，另一维用BIT维护即可，这样可以保证修改是正确的。但对于同一个点要先修改在查询即可，因为维护的时候有+有-，故不用每次清空BIT</p>
+<p><strong>解法三：</strong><br>随机</p>
+<hr>
+<h3 id="K-carpet"><a href="#K-carpet" class="headerlink" title="K.carpet"></a>K.carpet</h3><h4 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h4><p>有一个$n*m$ 的矩阵A，每个位置有一个字符和一个权值，现在要找一个子矩阵，使得这个子矩阵是A的一个<br>循环节，并最小化子矩阵的权值最大值。</p>
+<h4 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h4><p>待补or留坑</p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Multi-school/" rel="tag"># Multi-school</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/25/手动加栈/" rel="next" title="手动加栈">
+                <i class="fa fa-chevron-left"></i> 手动加栈
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/25/解决关闭shadowsocks无法正常上网/" rel="prev" title="解决关闭shadowsocks无法正常上网">
+                解决关闭shadowsocks无法正常上网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/64938469_p0.jpg" alt="Kzpx">
+            
+              <p class="site-author-name" itemprop="name">Kzpx</p>
+              <p class="site-description motion-element" itemprop="description">Hello the cruel world.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Kzpx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/linw7/Skill-Tree" title="Ali-CsNotes" target="_blank">Ali-CsNotes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_34921856" title="Gstnt" target="_blank">Gstnt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/Deadline/" title="Deadline" target="_blank">Deadline</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://acm.ecnu.edu.cn/wiki/index.php?title=ECNU_Foreigners_(2018)" title="ecnu" target="_blank">ecnu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/liangzhaoyang1/article/list/" title="Lzy" target="_blank">Lzy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://oi.men.ci/" title="Menci" target="_blank">Menci</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/kuangbin/category/311579.html" title="kuangbin" target="_blank">kuangbin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/meopass?t=1" title="meopass" target="_blank">meopass</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_38891827" title="biubiubiu" target="_blank">biubiubiu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tokitsukaze.live/" title="tokitsukaze" target="_blank">tokitsukaze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cubercsl.cn/" title="cubercsl" target="_blank">cubercsl</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/clrs97/" title="Claris" target="_blank">Claris</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hzwer.com/" title="hzwer" target="_blank">hzwer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/qscqesze/" title="qscqesze" target="_blank">qscqesze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wiki.icpc.camp/" title="ICPCCamp" target="_blank">ICPCCamp</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zyfzyf/" title="ZYF" target="_blank">ZYF</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.xehoth.cc/" title="xehoth" target="_blank">xehoth</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/shinianhuanniyijuhaojiubujian/" title="Ocean" target="_blank">Ocean</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/mrbird_to_fly" title="MrBird_to_fly" target="_blank">MrBird_to_fly</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/xingkongyihao/" title="starry_sky" target="_blank">starry_sky</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://vjudge.net/article/547" title="Multi-school AC>=20" target="_blank">Multi-school AC>=20</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/snowy_smile" title="snowy_smile" target="_blank">snowy_smile</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zzqsblog/" title="fjzzq2002" target="_blank">fjzzq2002</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-run"><span class="nav-number">1.</span> <span class="nav-text">A.run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-discount"><span class="nav-number">2.</span> <span class="nav-text">B. discount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-Fluorescent-2"><span class="nav-number">3.</span> <span class="nav-text">C.Fluorescent 2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">3.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-Two-Graphs"><span class="nav-number">4.</span> <span class="nav-text">D.Two Graphs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E-tree"><span class="nav-number">5.</span> <span class="nav-text">E.    tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F-trade"><span class="nav-number">6.</span> <span class="nav-text">F.    trade</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#G-transform"><span class="nav-number">7.</span> <span class="nav-text">G.transform</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-1"><span class="nav-number">7.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-1"><span class="nav-number">7.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#H-Longest-Path"><span class="nav-number">8.</span> <span class="nav-text">H.    Longest Path</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-2"><span class="nav-number">8.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-2"><span class="nav-number">8.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-Different-Integers"><span class="nav-number">9.</span> <span class="nav-text">I.    Different Integers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#J-farm"><span class="nav-number">10.</span> <span class="nav-text">J.farm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-3"><span class="nav-number">10.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-3"><span class="nav-number">10.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-carpet"><span class="nav-number">11.</span> <span class="nav-text">K.carpet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-4"><span class="nav-number">11.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-4"><span class="nav-number">11.2.</span> <span class="nav-text">题解</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kzpx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+  <script>
+    (function(){
+        if(''){
+            if (prompt('��������������') !== ''){
+                alert('�������');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Multi-school,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="补题进度: 5/8(10)自闭了啊，感觉脑子不行了">
+<meta name="keywords" content="Multi-school">
+<meta property="og:type" content="article">
+<meta property="og:title" content="牛客多校第四场">
+<meta property="og:url" content="https://kzpx.github.io/2018/07/30/牛客多校第四场/index.html">
+<meta property="og:site_name" content="ymkzpx">
+<meta property="og:description" content="补题进度: 5/8(10)自闭了啊，感觉脑子不行了">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-30T04:20:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="牛客多校第四场">
+<meta name="twitter:description" content="补题进度: 5/8(10)自闭了啊，感觉脑子不行了">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kzpx.github.io/2018/07/30/牛客多校第四场/">
+
+
+
+
+
+  <title>牛客多校第四场 | ymkzpx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ymkzpx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Success and failure are temporary.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kzpx.github.io/2018/07/30/牛客多校第四场/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kzpx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/64938469_p0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ymkzpx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">牛客多校第四场</h1>
+        
+
+        <div class="post-meta">
+                  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-30T12:20:42+08:00">
+                2018-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/Multi-school/" itemprop="url" rel="index">
+                    <span itemprop="name">Multi-school</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>补题进度: 5/8(10)<br>自闭了啊，感觉脑子不行了</p>
+<a id="more"></a>
+<hr>
+<h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>给一个字符串s，由0,1,2组成，每一秒都会在1后面加一个0, 2后面加一个1，并且第一个字符消失，问多少秒钟s变为空。答案%$（10^9+7）$ , $(|s|≤2·10^6)$</p>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>分析可得出</p>
+<ul>
+<li>考虑0，直接删掉即可 ，1次</li>
+<li>考虑1，假设前面操作了x次，那么删除它以及它生成的1所需要 $2·x+2$次</li>
+<li>考虑2，暴力打表，观察可得 $3·2^{x+1}$</li>
+</ul>
+<p>直接快速幂从左向右递推的话相当于很多个log相乘肯定不行</p>
+<p>考虑欧拉函数降幂</p>
+<p>一个经典的问题：<br>$$<br>a^{b^c……..}  \% p<br>$$</p>
+<p>可用欧拉函数降幂解决</p>
+<p>$$<br>a^b=a^{ b \ \% \  \phi(p) } \%p \ \ \ \ \  (gcd(a,p)=1)<br>$$</p>
+<p>但需要不断模数是变化的， 即不断的迭代 $phi(…phi(mod))$</p>
+<p>考虑欧拉降幂公式，$mod$是从小到大的，即后面模数大于前面的模数，预处理$phi(…phi(mod))$,反向迭代$mod$即可<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span>+<span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">char</span> s[maxn];</span><br><span class="line"><span class="keyword">int</span> n,T;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> p[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">quick_pow</span><span class="params">(ll a, ll b, ll mod)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans=(ans*a)%mod;</span><br><span class="line">        a=(a*a)%mod;</span><br><span class="line">        b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">phi</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &amp;&amp; n%i==<span class="number">0</span>)&#123;</span><br><span class="line">            ans=ans/i*(i<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>)</span><br><span class="line">                n/=i;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>) ans=ans/n*(n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;  <span class="comment">// 预处理phi</span></span><br><span class="line">    p[<span class="number">0</span>]=mod;</span><br><span class="line">    <span class="keyword">int</span> k=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>( k &lt; <span class="number">30</span>)&#123;</span><br><span class="line">        p[k] = phi(p[k<span class="number">-1</span>]);</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=k;i&lt;maxn;i++)</span><br><span class="line">        p[i]=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s+<span class="number">1</span>);</span><br><span class="line">        ll ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=len;i++)</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'2'</span>) cnt++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=len;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'1'</span>) ans= (<span class="number">2</span>*ans+<span class="number">2</span>)%p[cnt];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">'0'</span>)  ans=(ans+<span class="number">1</span>)%p[cnt];</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                --cnt;</span><br><span class="line">                 ans = ( (<span class="number">3</span> * quick_pow(<span class="number">2</span>, (ans+<span class="number">1</span>)%p[cnt], p[cnt]))%p[cnt] - <span class="number">3</span> + p[cnt] ) % p[cnt];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><h4 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h4><p>给一个大区间$[1,m]$, n个小区间$[l_i, r_i]$,每个小区间都有一个权重$w_i$, 现要从这n个区间选择几个小区间使得覆盖[1,m]，每个位置的权重$s_i$等于这个位置上小区间的权重$w_i$的和，问所有$s_i$最大的最小的值</p>
+<h4 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h4><p>待补</p>
+<p>dp+线段树</p>
+<hr>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><h4 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h4><p>$$<br>a_n=0 (n=1)<br>$$<br>$$<br>a_n=a_{n/2}+(-1)^{n(n+1)/2}  (n&gt;=2)<br>$$<br>问<br>$$<br>\sum_{i=1}^{n} |a_i|<br>$$<br>答案%$（10^9+7）$，$  (T≤10^5, n≤10^{18})$ </p>
+<h4 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h4><p>待补<br>找规律</p>
+<hr>
+<h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><h4 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h4><p>给一个$n$，输出一个只由$-1,0,1$构成的每一行的和以及每一列的和都不相同，行和列也不相同，$n·n$的矩阵，不存在$-1$</p>
+<h4 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h4><p>找几个数玩玩发现</p>
+<ul>
+<li>n为奇数不存在</li>
+<li>n为偶数瞎构造构造<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="number">1</span>  <span class="number">1</span>  <span class="number">1</span></span><br><span class="line"><span class="number">0</span> <span class="number">-1</span>  <span class="number">1</span>  <span class="number">1</span></span><br><span class="line"><span class="number">0</span>  <span class="number">0</span>  <span class="number">1</span>  <span class="number">1</span></span><br><span class="line"><span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="E"><a href="#E" class="headerlink" title="E"></a>E</h3><h4 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h4><p>平⾯上n个点，每个点出现概率是$p_i$，⼀个点被⽀配，当且仅当存在⼀个点在其右上⽅, 求期望被⽀配的点数。$(n ≤ 1e5)$</p>
+<h4 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h4><p>待补<br>概率dp</p>
+<hr>
+<h3 id="F"><a href="#F" class="headerlink" title="F"></a>F</h3><p>模拟即可</p>
+<hr>
+<h3 id="G"><a href="#G" class="headerlink" title="G"></a>G</h3><h4 id="题意-5"><a href="#题意-5" class="headerlink" title="题意"></a>题意</h4><p>给一个长度为n序列的a， 问你删除m后，出现次数最多(不能出现次数最多的数大于一个)且最大的数是几，不存在-1</p>
+<h4 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h4><p>暴力枚举每个数，check每个数要最少删除的数量</p>
+<p>check方法: priority_queue，从大最小弹即可<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pq 默认从大到小弹出</span><br><span class="line">pq&lt;<span class="keyword">int</span>&gt; = pq&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt; &gt;; 从小到大</span><br><span class="line">pq&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, less&lt;<span class="keyword">int</span>&gt; &gt;; 从大到小</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="H"><a href="#H" class="headerlink" title="H"></a>H</h3><h4 id="题意-6"><a href="#题意-6" class="headerlink" title="题意"></a>题意</h4><p>给一个字符串s，问有多少对(i,j),交换$(s_i, s_j)$后，s是两个回文串</p>
+<h4 id="题解-6"><a href="#题解-6" class="headerlink" title="题解"></a>题解</h4><hr>
+<h3 id="I"><a href="#I" class="headerlink" title="I"></a>I</h3><p>留坑</p>
+<hr>
+<h3 id="J"><a href="#J" class="headerlink" title="J"></a>J</h3><h4 id="题意-7"><a href="#题意-7" class="headerlink" title="题意"></a>题意</h4><p>给一个长度为 $n$ 的$hash$表，位置为$[0，n-1]$， $h(x)=x \% n$, 若这个位置已经被其他的数占据，则位置$+1$， 直至找到合法的位置，现给出$hash$表，问你原来的字典序最小的序列，$hash$表不合法输出$-1$</p>
+<h4 id="题解-7"><a href="#题解-7" class="headerlink" title="题解"></a>题解</h4><p>这种有明显的先后关系，可以转化为有向图后拓扑排序，一个很直白的建边方式是，一个点和它$[h(x)\% n ，i]$，之间的所有点建边，这样最坏情况下是$n^2$的<br>，可以用<strong>线段树优化建图</strong>后跑拓扑排序即可。</p>
+<p><strong>解法二：并查集</strong></p>
+<p>考虑每个点安放顺序，一个点应安放$[h(x)\% n ，i]$之后，考虑并查集，每个点安放好后把这个点的$father$设为右边一个点的$father$，这样原本不能建的点会变的合法，不断check下一个位置即可，那么这个点合法安放的条件是$father[i]=father[a[i]\%n]$, 字典序最小的话用优先队列优先弹出小的值即可。</p>
+<p><strong>Trick：注意每次的下一个位置不一定是(pos+1)%n， 而是findfa((pos+1)%n)</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> sz(x) (int)(x).size()</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span>+<span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> n,T;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> fa[maxn], a[maxn], ans[maxn];</span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findfa</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(fa[x]==x) <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> fa[x]=findfa(fa[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;maxn;i++)</span><br><span class="line">     fa[i]=i;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a, pos;</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (node x, node y)&#123;</span><br><span class="line">        <span class="keyword">return</span> x.a &gt; y.a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        init();</span><br><span class="line">        priority_queue&lt;node&gt;q;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">            <span class="keyword">if</span>(a[i]%n==i &amp;&amp; a[i]!=<span class="number">-1</span>) q.push(&#123;a[i], i&#125;), vis[i]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(a[i]!=<span class="number">-1</span>) ++cnt;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(sz(q))</span><br><span class="line">        &#123;</span><br><span class="line">            node now = q.top();</span><br><span class="line">            q.pop();</span><br><span class="line">            ans[++num]=now.a;</span><br><span class="line">            fa[findfa(now.pos)] = findfa((now.pos+<span class="number">1</span>)%n);</span><br><span class="line">            <span class="keyword">int</span> k=fa[now.pos];</span><br><span class="line">            <span class="keyword">if</span>(findfa(a[k]%n) == k &amp;&amp; (!vis[k]) &amp;&amp; a[k]!=<span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                q.push(&#123;a[k], k&#125;);</span><br><span class="line">                vis[k]=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(cnt==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(num == cnt)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=num;i++)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d%c"</span>, ans[i], i==num?<span class="string">'\n'</span>:<span class="string">' '</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"-1"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Multi-school/" rel="tag"># Multi-school</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/30/ZJU 1346/" rel="next" title="ZJU 1346 (状压dp)">
+                <i class="fa fa-chevron-left"></i> ZJU 1346 (状压dp)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/30/HDU多校第二场/" rel="prev" title="HDU多校第二场">
+                HDU多校第二场 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/64938469_p0.jpg" alt="Kzpx">
+            
+              <p class="site-author-name" itemprop="name">Kzpx</p>
+              <p class="site-description motion-element" itemprop="description">Hello the cruel world.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Kzpx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/linw7/Skill-Tree" title="Ali-CsNotes" target="_blank">Ali-CsNotes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_34921856" title="Gstnt" target="_blank">Gstnt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/Deadline/" title="Deadline" target="_blank">Deadline</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://acm.ecnu.edu.cn/wiki/index.php?title=ECNU_Foreigners_(2018)" title="ecnu" target="_blank">ecnu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/liangzhaoyang1/article/list/" title="Lzy" target="_blank">Lzy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://oi.men.ci/" title="Menci" target="_blank">Menci</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/kuangbin/category/311579.html" title="kuangbin" target="_blank">kuangbin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/meopass?t=1" title="meopass" target="_blank">meopass</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_38891827" title="biubiubiu" target="_blank">biubiubiu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tokitsukaze.live/" title="tokitsukaze" target="_blank">tokitsukaze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cubercsl.cn/" title="cubercsl" target="_blank">cubercsl</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/clrs97/" title="Claris" target="_blank">Claris</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hzwer.com/" title="hzwer" target="_blank">hzwer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/qscqesze/" title="qscqesze" target="_blank">qscqesze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wiki.icpc.camp/" title="ICPCCamp" target="_blank">ICPCCamp</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zyfzyf/" title="ZYF" target="_blank">ZYF</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.xehoth.cc/" title="xehoth" target="_blank">xehoth</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/shinianhuanniyijuhaojiubujian/" title="Ocean" target="_blank">Ocean</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/mrbird_to_fly" title="MrBird_to_fly" target="_blank">MrBird_to_fly</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/xingkongyihao/" title="starry_sky" target="_blank">starry_sky</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://vjudge.net/article/547" title="Multi-school AC>=20" target="_blank">Multi-school AC>=20</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/snowy_smile" title="snowy_smile" target="_blank">snowy_smile</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zzqsblog/" title="fjzzq2002" target="_blank">fjzzq2002</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#A"><span class="nav-number">1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">1.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B"><span class="nav-number">2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-1"><span class="nav-number">2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-1"><span class="nav-number">2.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C"><span class="nav-number">3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-2"><span class="nav-number">3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-2"><span class="nav-number">3.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D"><span class="nav-number">4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-3"><span class="nav-number">4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-3"><span class="nav-number">4.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E"><span class="nav-number">5.</span> <span class="nav-text">E</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-4"><span class="nav-number">5.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-4"><span class="nav-number">5.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F"><span class="nav-number">6.</span> <span class="nav-text">F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#G"><span class="nav-number">7.</span> <span class="nav-text">G</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-5"><span class="nav-number">7.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-5"><span class="nav-number">7.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#H"><span class="nav-number">8.</span> <span class="nav-text">H</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-6"><span class="nav-number">8.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-6"><span class="nav-number">8.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I"><span class="nav-number">9.</span> <span class="nav-text">I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#J"><span class="nav-number">10.</span> <span class="nav-text">J</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-7"><span class="nav-number">10.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-7"><span class="nav-number">10.2.</span> <span class="nav-text">题解</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kzpx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

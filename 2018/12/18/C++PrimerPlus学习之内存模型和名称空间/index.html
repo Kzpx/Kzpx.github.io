@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+  <script>
+    (function(){
+        if(''){
+            if (prompt('��������������') !== ''){
+                alert('�������');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Program,C++,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="加油鸭">
+<meta name="keywords" content="Program,C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Primer Plus 学习之内存模型和名称空间">
+<meta property="og:url" content="https://kzpx.github.io/2018/12/18/C++PrimerPlus学习之内存模型和名称空间/index.html">
+<meta property="og:site_name" content="ymkzpx">
+<meta property="og:description" content="加油鸭">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-18T00:58:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Primer Plus 学习之内存模型和名称空间">
+<meta name="twitter:description" content="加油鸭">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kzpx.github.io/2018/12/18/C++PrimerPlus学习之内存模型和名称空间/">
+
+
+
+
+
+  <title>C++ Primer Plus 学习之内存模型和名称空间 | ymkzpx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ymkzpx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Success and failure are temporary.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kzpx.github.io/2018/12/18/C++PrimerPlus学习之内存模型和名称空间/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kzpx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/64938469_p0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ymkzpx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++ Primer Plus 学习之内存模型和名称空间</h1>
+        
+
+        <div class="post-meta">
+                  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-18T08:58:48+08:00">
+                2018-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Program/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>加油鸭</p>
+<a id="more"></a>
+<hr>
+<h3 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h3><ul>
+<li>如果文件名包含在尖括号中，则C++编译器将在存储标准头文件的主机系统的文件系统的中查找。如果文件名包含在双引号中，则编译器将在当前目录下查找。</li>
+<li>使用条件编译防止多次包含头文件。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> XXX_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> XXX_H_</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="存储持续性，作用域和链接性"><a href="#存储持续性，作用域和链接性" class="headerlink" title="存储持续性，作用域和链接性"></a>存储持续性，作用域和链接性</h3><p><strong>C++存储方式是通过存储连续性、作用域和链接性来描述的</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">存储描述</th>
+<th style="text-align:center">持续性</th>
+<th style="text-align:center">作用域</th>
+<th style="text-align:center">链接性</th>
+<th style="text-align:center">如何声明</th>
+<th style="text-align:center">存储位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">自动</td>
+<td style="text-align:center">自动</td>
+<td style="text-align:center">代码块</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">在代码块中</td>
+<td style="text-align:center">栈中</td>
+</tr>
+<tr>
+<td style="text-align:center">寄存器</td>
+<td style="text-align:center">自动</td>
+<td style="text-align:center">代码块</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">在代码块中，使用关键字register</td>
+<td style="text-align:center">寄存器中</td>
+</tr>
+<tr>
+<td style="text-align:center">静态,无链接性</td>
+<td style="text-align:center">静态</td>
+<td style="text-align:center">代码块</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">在代码块中，使用关键字static</td>
+<td style="text-align:center">内存块</td>
+</tr>
+<tr>
+<td style="text-align:center">静态，外部链接性</td>
+<td style="text-align:center">静态</td>
+<td style="text-align:center">所有文件</td>
+<td style="text-align:center">外部</td>
+<td style="text-align:center">不在任何函数中</td>
+<td style="text-align:center">内存块</td>
+</tr>
+<tr>
+<td style="text-align:center">静态，内部链接性</td>
+<td style="text-align:center">静态</td>
+<td style="text-align:center">本文件</td>
+<td style="text-align:center">内部</td>
+<td style="text-align:center">不在任何函数内，使用关键字static</td>
+<td style="text-align:center">内存块</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>如果定义一个静态外部链接性的变量，其他文件在使用时，需要引用声明使用关键字extern，且不进行初始化。</li>
+</ul>
+<p>链接性（linkage）描述了名称如何在不同单元间共享。</p>
+<ul>
+<li>链接性如果为外部，则名称可在文件间共享。</li>
+<li>链接性如果为内部，则名称只能由一个文件中的函数共享。</li>
+<li>自动变量的名称没有链接性，因为他们不能共享。</li>
+</ul>
+<hr>
+<p><strong>作用域解析运算符::</strong></p>
+<p>作用：:就是当局部变量和全局变量名字重叠的时候，指定某变量一定是来自全局变量。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">5</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">3</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;::a&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//作用域解析运算符，此时的a为全局变量的a</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>说明符</strong></p>
+<ul>
+<li>register 用于在声明中指示寄存器存储，而在C++11中，它只是显式地指出变量是自动的。</li>
+<li>static 表示内部链接性。</li>
+<li>extern 表面是引用声明，即声明引用在其他文件定义的变量。</li>
+<li>thread_local(C++11新增) 指出变量的持续性与其所属的线程的持续性相同。thread_local变量之于线程，犹如常规静态变量之于整个程序。</li>
+<li>mutable 用来指出，即使结构(或类)变量为const，其某个成员也可以被修改。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">30</span>];</span><br><span class="line">    <span class="keyword">mutable</span> <span class="keyword">int</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> student a=&#123;<span class="string">"guo shen"</span>,<span class="number">100</span>&#125;;</span><br><span class="line">    a.score++;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;a.name&lt;&lt;<span class="string">' '</span>&lt;&lt;a.score&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>cv-限定符之volatile</strong></p>
+<ul>
+<li>即使程序代码没有对内存单元进行修改，其值也可能发生变化(可能受硬件影响)。</li>
+<li>如果不使用volatile变量，在再次访问之前编译器可能会认为值没有变化，从而进行优化(如将值放在寄存器中缓存起来)。</li>
+<li>使用volatile变量相当于告诉编译器，不要进行这种优化。</li>
+</ul>
+<hr>
+<p><strong>cv-限定符之const(不能修改的内存)</strong></p>
+<ul>
+<li>const 对全局变量的链接性有影响 – const全局变量的链接性为内部的。</li>
+<li>也是const变量能写在头文件而没有多重定义的原因。</li>
+<li>若想使用链接性为外部的const变量，则可以再在前面加extern进行定义，但其他文件使用此变量必须也要用extern关键字进行声明。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>函数的链接性</strong></p>
+<ul>
+<li>函数默认为外部静态的 即默认是extern的。</li>
+<li>可使用 static 关键字将其链接性设置为内部的。</li>
+<li><ul>
+<li>必须同时在原型和定义中使用static。</li>
+</ul>
+</li>
+<li><ul>
+<li>内部静态函数将覆盖外部函数。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="名称空间"><a href="#名称空间" class="headerlink" title="名称空间"></a>名称空间</h3><p><strong>名称空间特性</strong></p>
+<ul>
+<li><p>为解决名称冲突的问题使用名称空间工具。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Tom&#123;</span><br><span class="line">    <span class="keyword">double</span> pail;</span><br><span class="line">    <span class="function"><span class="keyword">void</span>   <span class="title">fetch</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">int</span> pal;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Well</span> &#123;</span>..&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">namespace</span> Jerry&#123;</span><br><span class="line">    <span class="keyword">char</span> other;</span><br><span class="line">    <span class="function"><span class="keyword">void</span>   <span class="title">fetch</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">int</span> pal;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Hill</span> &#123;</span>..&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>名称空间可以是全局的，也可以位于另一个名称空间中，但不可以位于代码块中。</p>
+</li>
+<li>默认情况下，名称空间中声明的名称的链接性为外部的。</li>
+<li>访问某一名称空间中的名称要使用作用域解析符::<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Tom&#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>using 编译指令和 using 声明</strong></p>
+<ul>
+<li>using 声明使特定的标识符可用 :using Tom::pal=1;</li>
+<li>usng编译指令使整个名称空间所有的名称都可用。</li>
+<li>使用using 声明和using编译指令可能会增加名称冲突的可能性，使用作用域解析运算符就不会存在二义性。</li>
+<li>如果某个名称已经在函数声明了，则不能用using声明导入相同的名称。</li>
+<li>如果使用using编译指令，名称空间相当于全局的，那么局部名称将隐藏名称空间名，就像隐藏同名的全局变量一样。不过仍可以使用作用域解析运算符。</li>
+</ul>
+<hr>
+<p><strong>关键字new 和 delete</strong></p>
+<p><a href="http://www.cnblogs.com/hazir/p/new_and_delete.html" target="_blank" rel="noopener">牛逼网友</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始值</span></span><br><span class="line"><span class="keyword">int</span> *p = <span class="keyword">new</span> <span class="keyword">int</span> (<span class="number">5</span>)；</span><br><span class="line"><span class="comment">// 分配对象数量</span></span><br><span class="line"><span class="keyword">int</span> *p = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">10</span>];</span><br></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Program/" rel="tag"># Program</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/17/C++常考知识点总结/" rel="next" title="C++常考知识点总结">
+                <i class="fa fa-chevron-left"></i> C++常考知识点总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/18/C++PrimerPlus学习之对象和类/" rel="prev" title="C++ Primer Plus 学习之对象和类">
+                C++ Primer Plus 学习之对象和类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/64938469_p0.jpg" alt="Kzpx">
+            
+              <p class="site-author-name" itemprop="name">Kzpx</p>
+              <p class="site-description motion-element" itemprop="description">Hello the cruel world.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Kzpx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/linw7/Skill-Tree" title="Ali-CsNotes" target="_blank">Ali-CsNotes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_34921856" title="Gstnt" target="_blank">Gstnt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/Deadline/" title="Deadline" target="_blank">Deadline</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://acm.ecnu.edu.cn/wiki/index.php?title=ECNU_Foreigners_(2018)" title="ecnu" target="_blank">ecnu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/liangzhaoyang1/article/list/" title="Lzy" target="_blank">Lzy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://oi.men.ci/" title="Menci" target="_blank">Menci</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/kuangbin/category/311579.html" title="kuangbin" target="_blank">kuangbin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/meopass?t=1" title="meopass" target="_blank">meopass</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_38891827" title="biubiubiu" target="_blank">biubiubiu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tokitsukaze.live/" title="tokitsukaze" target="_blank">tokitsukaze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cubercsl.cn/" title="cubercsl" target="_blank">cubercsl</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/clrs97/" title="Claris" target="_blank">Claris</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hzwer.com/" title="hzwer" target="_blank">hzwer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/qscqesze/" title="qscqesze" target="_blank">qscqesze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wiki.icpc.camp/" title="ICPCCamp" target="_blank">ICPCCamp</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zyfzyf/" title="ZYF" target="_blank">ZYF</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.xehoth.cc/" title="xehoth" target="_blank">xehoth</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/shinianhuanniyijuhaojiubujian/" title="Ocean" target="_blank">Ocean</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/mrbird_to_fly" title="MrBird_to_fly" target="_blank">MrBird_to_fly</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/xingkongyihao/" title="starry_sky" target="_blank">starry_sky</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://vjudge.net/article/547" title="Multi-school AC>=20" target="_blank">Multi-school AC>=20</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/snowy_smile" title="snowy_smile" target="_blank">snowy_smile</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zzqsblog/" title="fjzzq2002" target="_blank">fjzzq2002</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#头文件"><span class="nav-number">1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储持续性，作用域和链接性"><span class="nav-number">2.</span> <span class="nav-text">存储持续性，作用域和链接性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#名称空间"><span class="nav-number">3.</span> <span class="nav-text">名称空间</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kzpx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

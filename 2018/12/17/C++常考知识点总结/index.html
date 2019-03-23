@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+  <script>
+    (function(){
+        if(''){
+            if (prompt('��������������') !== ''){
+                alert('�������');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Program,C++,Sort,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0 Offer(新的一天新的难过">
+<meta name="keywords" content="Program,C++,Sort">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++常考知识点总结">
+<meta property="og:url" content="https://kzpx.github.io/2018/12/17/C++常考知识点总结/index.html">
+<meta property="og:site_name" content="ymkzpx">
+<meta property="og:description" content="0 Offer(新的一天新的难过">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-17T12:13:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++常考知识点总结">
+<meta name="twitter:description" content="0 Offer(新的一天新的难过">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kzpx.github.io/2018/12/17/C++常考知识点总结/">
+
+
+
+
+
+  <title>C++常考知识点总结 | ymkzpx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ymkzpx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Success and failure are temporary.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kzpx.github.io/2018/12/17/C++常考知识点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kzpx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/64938469_p0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ymkzpx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++常考知识点总结</h1>
+        
+
+        <div class="post-meta">
+                  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-17T20:13:08+08:00">
+                2018-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Program/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>0 Offer(新的一天新的难过</p>
+<a id="more"></a>
+<hr>
+<h3 id="C-中引用与指针的区别"><a href="#C-中引用与指针的区别" class="headerlink" title="C++中引用与指针的区别"></a>C++中引用与指针的区别</h3><p><strong>联系</strong>：引用是变量的别名，可以将引用看做操作受限的指针。</p>
+<p><strong>区别：</strong></p>
+<ul>
+<li>指针是一个实体，而引用仅是个别名。</li>
+<li>引用只能在定义时必须初始化，指针可以不初始化为空。</li>
+<li>用初始化之后其地址就不可改变（即始终作该变量的别名直至销毁，即从一而终。注意：并不表示引用的值不可变，因为只要所指向的变量值改变。引用的值也就改变了），但指针所指地址是可变的。</li>
+</ul>
+<hr>
+<h3 id="C-C-程序的内存分区"><a href="#C-C-程序的内存分区" class="headerlink" title="C/C++程序的内存分区"></a>C/C++程序的内存分区</h3><p><strong>栈区(Stack): </strong> 由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其<br>操作方式类似于数据结构中的栈。 </p>
+<p><strong>堆区(Heap): </strong>一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回<br>收 。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。 </p>
+<p><strong>全局区(静态区静态static):</strong>全局变量和静态变量的存储是放在一块的，初始化的<br>全局变量和静态变量在一块区域， 未初始化的全局变量和未初始化的静态变量在相邻的另一块区域。  程序结束后由系统释放。 </p>
+<p><strong>文字常量区 (Stack):</strong>常量字符串就是放在这里的。 程序结束后由系统释放。</p>
+<p><strong>程序代码区(Stack):</strong>存放函数体的二进制代码。</p>
+<h4 id="栈区和堆区的区别"><a href="#栈区和堆区的区别" class="headerlink" title="栈区和堆区的区别"></a>栈区和堆区的区别</h4><ul>
+<li><strong>堆和栈中的存储内容</strong>：栈存局部变量、函数参数等。堆存储使用new、malloc申请的变量等。</li>
+<li><strong>申请方式</strong>：栈内存由系统分配，堆内存由自己申请。</li>
+<li><strong>申请后系统的响应</strong>：<strong>栈：</strong>只要栈的剩余空间大于所申请空间，系统将为程序提供内存，否则将报异常提示栈溢出。<strong>堆:</strong>首先应该知道操作系统有一个记录空闲内存地址的链表，当系统收到程序的申请时，会遍历该链表，寻找第一个空间大于所申请空间的堆结点，然后将该结点从空闲结点链表 中删除，并将该结点的空间分配给程序。</li>
+<li>申请大小的限制：Windows下栈的大小一般是2M，堆的容量较大。</li>
+<li>申请效率的比较：栈由系统自动分配，速度较快。堆使用new、malloc等分配，较慢。</li>
+</ul>
+<p><strong>总结</strong>：栈区优势在处理效率，堆区优势在于灵活。</p>
+<hr>
+<h4 id="内存模型：自由区、静态区、动态区"><a href="#内存模型：自由区、静态区、动态区" class="headerlink" title="内存模型：自由区、静态区、动态区"></a>内存模型：自由区、静态区、动态区</h4><p>根据c/c++对象生命周期不同，c/c++的内存模型有三种不同的内存区域，即：自由存储区，动态区、静态区。</p>
+<ul>
+<li><strong>自由存储区</strong>：局部非静态变量的存储区域，即平常所说的栈。</li>
+<li><strong>动态区</strong>： 用new ，malloc分配的内存，即平常所说的堆。</li>
+<li><strong>静态区</strong>：全局变量，静态变量，字符串常量存在的位置。</li>
+</ul>
+<p><strong>注意</strong>：代码虽然占内存，但不属于c/c++内存模型的一部分。</p>
+<hr>
+<h3 id="malloc和new的区别"><a href="#malloc和new的区别" class="headerlink" title="malloc和new的区别"></a>malloc和new的区别</h3><ul>
+<li><strong>属性</strong>：<strong>new/delete</strong>是C++关键字，需要编译器支持。<strong>malloc/free</strong>是库函数，需要头文件支持。</li>
+<li><strong>参数</strong>：使用new操作符申请内存分配时无须指定内存块的大小，编译器会根据类型信息自行计算。而malloc则需要显式地指出所需内存的尺寸(字节数)。</li>
+<li><strong>返回类型</strong>：<strong>new</strong>操作符内存分配成功时，返回的是对象类型的指针，类型严格与对象匹配，无须进行类型转换，故new是符合类型安全性的操作符。而<strong>malloc</strong>内存分配成功则是返回 $\rm void<em>$ ，需要通过强制类型转换将$\rm void</em>$指针转换成我们需要的类型。</li>
+<li><strong>分配失败</strong>: <strong>new</strong>内存分配失败时，会抛出bac_alloc异常。<strong>malloc</strong>分配内存失败时返回NULL。</li>
+<li><strong>自定义类型</strong>: <strong>new</strong> 会先调用operator new函数，申请足够的内存（通常底层使用malloc实现）。然后调用类型的构造函数，初始化成员变量，最后返回自定义类型指针。delete先调用析构函数，然后调用operator delete函数释放内存（通常底层使用free实现）。<strong>malloc/free</strong>是库函数，只能动态的申请和释放内存，无法强制要求其做自定义类型对象构造和析构工作。</li>
+<li><strong>重载</strong>：C++允许重载new/delete操作符，而malloc不允许重载。</li>
+<li><strong>内存区域</strong>：new操作符从自由存储区上为对象动态分配内存空间，而malloc函数从堆上动态分配内存。(自由存储区是C++基于new操作符的一个抽象概念，凡是通过new操作符进行内存申请，该内存即为自由存储区。而堆是操作系统中的术语，是操作系统所维护的一块特殊内存，用于程序的内存动态分配，C语言使用malloc从堆上分配内存，使用free释放已分配的对应内存。自由存储区不等于堆。</li>
+<li><strong>构造函数和析构函数</strong>：malloc仅仅分配内存空间，free仅仅回收空间，不具备调用构造函数和析构函数功能，用malloc分配空间存储类的对象存在风险；new和delete除了分配回收功能外，还会调用构造函数和析构函数</li>
+</ul>
+<hr>
+<h3 id="常引用"><a href="#常引用" class="headerlink" title="常引用"></a>常引用</h3><ul>
+<li>常引用下，原变量值不会被别名所修改。</li>
+<li>常引用可以理解为常量指针，形式为const typename &amp; refname = varname。</li>
+<li>原变量的值可以通过原名修改。</li>
+<li>常引用通常用作只读变量别名或是形参传递。</li>
+</ul>
+<hr>
+<h3 id="常量指针和指针常量区别"><a href="#常量指针和指针常量区别" class="headerlink" title="常量指针和指针常量区别"></a>常量指针和指针常量区别</h3><ul>
+<li>常量指针是一个指针，读成常量的指针，指向一个只读变量。如int const <em>p或const int </em>p。</li>
+<li>指针常量是一个不能给改变指向的指针。如int *const p。</li>
+</ul>
+<hr>
+<h3 id="变量声明和定义区别"><a href="#变量声明和定义区别" class="headerlink" title="变量声明和定义区别"></a>变量声明和定义区别</h3><ul>
+<li>声明仅仅是把变量的声明的位置及类型提供给编译器，并不分配内存空间；定义要在定义的地方为其分配存储空间。</li>
+<li>相同变量可以再多处声明（外部变量extern），但只能在一处定义。</li>
+</ul>
+<hr>
+<h3 id="野指针"><a href="#野指针" class="headerlink" title="野指针"></a>野指针</h3><ul>
+<li>也叫空悬指针，不是指向null的指针，是指向垃圾内存的指针。</li>
+<li>产生原因及解决办法</li>
+<li><ul>
+<li>指针变量未及时初始化 =&gt; 定义指针变量及时初始化，要么置空。</li>
+</ul>
+</li>
+<li><ul>
+<li>指针free或delete之后没有及时置空 =&gt; 释放操作后立即置空。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="堆和栈的区别"><a href="#堆和栈的区别" class="headerlink" title="堆和栈的区别"></a>堆和栈的区别</h3><ul>
+<li>申请方式不同: 栈由系统自动分配。堆由程序员手动分配。</li>
+<li>申请大小限制不同: 栈顶和栈底是之前预设好的，大小固定，可以通过ulimit -a查看，由ulimit -s修改。</li>
+<li>堆向高地址扩展，是不连续的内存区域，大小可以灵活调整。</li>
+<li>申请效率不同：栈由系统分配，速度快，不会有碎片。堆由程序员分配，速度慢，且会有碎片。</li>
+</ul>
+<hr>
+<h4 id="用户态切换到内核态的-3-种方式"><a href="#用户态切换到内核态的-3-种方式" class="headerlink" title="用户态切换到内核态的  3  种方式"></a>用户态切换到内核态的  3  种方式</h4><ul>
+<li>系统调用</li>
+<li>异常</li>
+<li>外围设备的中断 </li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Program/" rel="tag"># Program</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/Sort/" rel="tag"># Sort</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/17/C++ Primer Plus/" rel="next" title="C++ Primer Plus知识点">
+                <i class="fa fa-chevron-left"></i> C++ Primer Plus知识点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/18/C++PrimerPlus学习之内存模型和名称空间/" rel="prev" title="C++ Primer Plus 学习之内存模型和名称空间">
+                C++ Primer Plus 学习之内存模型和名称空间 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/64938469_p0.jpg" alt="Kzpx">
+            
+              <p class="site-author-name" itemprop="name">Kzpx</p>
+              <p class="site-description motion-element" itemprop="description">Hello the cruel world.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">204</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Kzpx" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/linw7/Skill-Tree" title="Ali-CsNotes" target="_blank">Ali-CsNotes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_34921856" title="Gstnt" target="_blank">Gstnt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/Deadline/" title="Deadline" target="_blank">Deadline</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://acm.ecnu.edu.cn/wiki/index.php?title=ECNU_Foreigners_(2018)" title="ecnu" target="_blank">ecnu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/liangzhaoyang1/article/list/" title="Lzy" target="_blank">Lzy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://oi.men.ci/" title="Menci" target="_blank">Menci</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/kuangbin/category/311579.html" title="kuangbin" target="_blank">kuangbin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/meopass?t=1" title="meopass" target="_blank">meopass</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_38891827" title="biubiubiu" target="_blank">biubiubiu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tokitsukaze.live/" title="tokitsukaze" target="_blank">tokitsukaze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cubercsl.cn/" title="cubercsl" target="_blank">cubercsl</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/clrs97/" title="Claris" target="_blank">Claris</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hzwer.com/" title="hzwer" target="_blank">hzwer</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/qscqesze/" title="qscqesze" target="_blank">qscqesze</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wiki.icpc.camp/" title="ICPCCamp" target="_blank">ICPCCamp</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zyfzyf/" title="ZYF" target="_blank">ZYF</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.xehoth.cc/" title="xehoth" target="_blank">xehoth</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/shinianhuanniyijuhaojiubujian/" title="Ocean" target="_blank">Ocean</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/mrbird_to_fly" title="MrBird_to_fly" target="_blank">MrBird_to_fly</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/xingkongyihao/" title="starry_sky" target="_blank">starry_sky</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://vjudge.net/article/547" title="Multi-school AC>=20" target="_blank">Multi-school AC>=20</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/snowy_smile" title="snowy_smile" target="_blank">snowy_smile</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/zzqsblog/" title="fjzzq2002" target="_blank">fjzzq2002</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-中引用与指针的区别"><span class="nav-number">1.</span> <span class="nav-text">C++中引用与指针的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-C-程序的内存分区"><span class="nav-number">2.</span> <span class="nav-text">C/C++程序的内存分区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#栈区和堆区的区别"><span class="nav-number">2.1.</span> <span class="nav-text">栈区和堆区的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存模型：自由区、静态区、动态区"><span class="nav-number">2.2.</span> <span class="nav-text">内存模型：自由区、静态区、动态区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#malloc和new的区别"><span class="nav-number">3.</span> <span class="nav-text">malloc和new的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常引用"><span class="nav-number">4.</span> <span class="nav-text">常引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量指针和指针常量区别"><span class="nav-number">5.</span> <span class="nav-text">常量指针和指针常量区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明和定义区别"><span class="nav-number">6.</span> <span class="nav-text">变量声明和定义区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#野指针"><span class="nav-number">7.</span> <span class="nav-text">野指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆和栈的区别"><span class="nav-number">8.</span> <span class="nav-text">堆和栈的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用户态切换到内核态的-3-种方式"><span class="nav-number">8.1.</span> <span class="nav-text">用户态切换到内核态的  3  种方式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kzpx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

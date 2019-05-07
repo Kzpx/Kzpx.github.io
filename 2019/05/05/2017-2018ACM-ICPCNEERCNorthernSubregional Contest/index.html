@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="5/12">
+<meta name="description" content="7/12">
 <meta name="keywords" content="ACM,codeforces,gym">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2017-2018 ACM-ICPC NEERC Northern Subregional Contest">
 <meta property="og:url" content="https://kzpx.github.io/2019/05/05/2017-2018ACM-ICPCNEERCNorthernSubregional Contest/index.html">
 <meta property="og:site_name" content="ymkzpx">
-<meta property="og:description" content="5/12">
+<meta property="og:description" content="7/12">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-06T13:24:54.418Z">
+<meta property="og:updated_time" content="2019-05-07T07:34:54.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017-2018 ACM-ICPC NEERC Northern Subregional Contest">
-<meta name="twitter:description" content="5/12">
+<meta name="twitter:description" content="7/12">
 
 
 
@@ -376,7 +376,7 @@
       
 
       
-        <p>5/12</p>
+        <p>7/12</p>
 <a id="more"></a>
 <hr>
 <p><a href="https://vjudge.net/contest/299766#overview" target="_blank" rel="noopener"><strong>题目链接</strong></a></p>
@@ -391,7 +391,13 @@
 </ul>
 <hr>
 <h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><hr>
-<h3 id="E-Equal-Numbers"><a href="#E-Equal-Numbers" class="headerlink" title="E. Equal Numbers"></a>E. Equal Numbers</h3><h4 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h4><h4 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h4><hr>
+<h3 id="E-Equal-Numbers"><a href="#E-Equal-Numbers" class="headerlink" title="E. Equal Numbers"></a>E. Equal Numbers</h3><h4 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h4><p>给一个 $n$ 和 $n$ 个数字，问可以修改 $k$ 次 $(0 \le k \le n)$，每次修改可以给任意一个数乘一个正整数，输出 $[0,n]$ 次修改的情况下，最少不相同数字数量。</p>
+<h4 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h4><ul>
+<li>令 $goal=lcm(a1,a2,…,an)$。</li>
+<li>那么对于每种数，可以变成另一个存在的倍数，或者直接变成 $goal。$</li>
+<li>时间复杂度: $O(nlogn)$</li>
+</ul>
+<hr>
 <h3 id="I-Intelligence-in-Perpendicularia"><a href="#I-Intelligence-in-Perpendicularia" class="headerlink" title="I. Intelligence in Perpendicularia"></a>I. Intelligence in Perpendicularia</h3><ul>
 <li>赛时沙雕写了个线段树。</li>
 <li>暴力维护多边形的边界即可。</li>
@@ -400,11 +406,13 @@
 <hr>
 <h3 id="K-Kotlin-Island"><a href="#K-Kotlin-Island" class="headerlink" title="K. Kotlin Island"></a>K. Kotlin Island</h3><h4 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h4><p>给出网格图的长和宽，可以填满整行和整列，输出构造出分割成 $n$ 个区域的的解法。</p>
 <h4 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h4><ul>
-<li>贪心</li>
-<li>？？？</li>
+<li>行最多可以添加 $\frac{h-1}{2}$条边    ,列同理。</li>
+<li>假设添加了 $x$ 行 $y$ 列，那么区域数量为 $(x + 1) · (y + 1)$。</li>
+<li>枚举 $x$ ，check是否存在合法的 $y$ 即可。</li>
 </ul>
 <hr>
-<h3 id="L-Little-Difference"><a href="#L-Little-Difference" class="headerlink" title="L. Little Difference"></a>L. Little Difference</h3><h4 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h4><h4 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h4><hr>
+<h3 id="L-Little-Difference"><a href="#L-Little-Difference" class="headerlink" title="L. Little Difference"></a>L. Little Difference</h3><p>czh solved</p>
+<hr>
 
       
     </div>
@@ -701,7 +709,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#A"><span class="nav-number">1.</span> <span class="nav-text">A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B"><span class="nav-number">2.</span> <span class="nav-text">B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C"><span class="nav-number">3.</span> <span class="nav-text">C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D"><span class="nav-number">4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">4.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E-Equal-Numbers"><span class="nav-number">5.</span> <span class="nav-text">E. Equal Numbers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-1"><span class="nav-number">5.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-1"><span class="nav-number">5.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-Intelligence-in-Perpendicularia"><span class="nav-number">6.</span> <span class="nav-text">I. Intelligence in Perpendicularia</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Kotlin-Island"><span class="nav-number">7.</span> <span class="nav-text">K. Kotlin Island</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-2"><span class="nav-number">7.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-2"><span class="nav-number">7.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L-Little-Difference"><span class="nav-number">8.</span> <span class="nav-text">L. Little Difference</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-3"><span class="nav-number">8.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-3"><span class="nav-number">8.2.</span> <span class="nav-text">题解</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#A"><span class="nav-number">1.</span> <span class="nav-text">A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B"><span class="nav-number">2.</span> <span class="nav-text">B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C"><span class="nav-number">3.</span> <span class="nav-text">C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D"><span class="nav-number">4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">4.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E-Equal-Numbers"><span class="nav-number">5.</span> <span class="nav-text">E. Equal Numbers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-1"><span class="nav-number">5.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-1"><span class="nav-number">5.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-Intelligence-in-Perpendicularia"><span class="nav-number">6.</span> <span class="nav-text">I. Intelligence in Perpendicularia</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Kotlin-Island"><span class="nav-number">7.</span> <span class="nav-text">K. Kotlin Island</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-2"><span class="nav-number">7.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解-2"><span class="nav-number">7.2.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L-Little-Difference"><span class="nav-number">8.</span> <span class="nav-text">L. Little Difference</span></a></li></ol></div>
             
 
           </div>

@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ACM,HDU,">
 
 
 
@@ -90,17 +90,18 @@
 
 
 
-<meta name="description" content="HDU 5242题意给一棵点权树以及树的相对父子，问从根出发选择 $k$ 条路径的最大点权和，每个点的权值只能算一次。$(n,k \le 10^5)$ 题解 由于已经给出了相对父子关系，从叶子结点向上到根的路径是唯一。 dp记录每个点向上权值和。 对dp权值和排序，从大到小求出每个点向上可以得到的点权和，并把点更新访问过。 这样每次每个点实际是找到最近被访问过的点。 取前 $k$ 个最大即可。">
+<meta name="description" content="树上贪心">
+<meta name="keywords" content="ACM,HDU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ymkzpx">
+<meta property="og:title" content="HDU5242">
 <meta property="og:url" content="https://kzpx.github.io/2019/05/19/HDU5242/index.html">
 <meta property="og:site_name" content="ymkzpx">
-<meta property="og:description" content="HDU 5242题意给一棵点权树以及树的相对父子，问从根出发选择 $k$ 条路径的最大点权和，每个点的权值只能算一次。$(n,k \le 10^5)$ 题解 由于已经给出了相对父子关系，从叶子结点向上到根的路径是唯一。 dp记录每个点向上权值和。 对dp权值和排序，从大到小求出每个点向上可以得到的点权和，并把点更新访问过。 这样每次每个点实际是找到最近被访问过的点。 取前 $k$ 个最大即可。">
+<meta property="og:description" content="树上贪心">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-19T09:39:57.284Z">
+<meta property="og:updated_time" content="2019-05-19T10:52:11.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ymkzpx">
-<meta name="twitter:description" content="HDU 5242题意给一棵点权树以及树的相对父子，问从根出发选择 $k$ 条路径的最大点权和，每个点的权值只能算一次。$(n,k \le 10^5)$ 题解 由于已经给出了相对父子关系，从叶子结点向上到根的路径是唯一。 dp记录每个点向上权值和。 对dp权值和排序，从大到小求出每个点向上可以得到的点权和，并把点更新访问过。 这样每次每个点实际是找到最近被访问过的点。 取前 $k$ 个最大即可。">
+<meta name="twitter:title" content="HDU5242">
+<meta name="twitter:description" content="树上贪心">
 
 
 
@@ -136,7 +137,7 @@
 
 
 
-  <title> | ymkzpx</title>
+  <title>HDU5242 | ymkzpx</title>
   
 
 
@@ -280,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">HDU5242</h1>
         
 
         <div class="post-meta">
@@ -303,6 +304,39 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/HDU/" itemprop="url" rel="index">
+                    <span itemprop="name">HDU</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -331,7 +365,12 @@
       
 
       
-        <h3 id="HDU-5242"><a href="#HDU-5242" class="headerlink" title="HDU 5242"></a>HDU 5242</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>给一棵点权树以及树的相对父子，问从根出发选择 $k$ 条路径的最大点权和，每个点的权值只能算一次。<br>$(n,k \le 10^5)$</p>
+        <p>树上贪心</p>
+<a id="more"></a>
+<hr>
+<!---more--->
+<hr>
+<h3 id="HDU-5242"><a href="#HDU-5242" class="headerlink" title="HDU 5242"></a>HDU 5242</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>给一棵点权树以及树的相对父子，问从根出发选择 $k$ 条路径的最大点权和，每个点的权值只能算一次。<br>$(n,k \le 10^5)$</p>
 <h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><ul>
 <li>由于已经给出了相对父子关系，从叶子结点向上到根的路径是唯一。</li>
 <li>dp记录每个点向上权值和。</li>
@@ -353,6 +392,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ACM/" rel="tag"># ACM</a>
+          
+            <a href="/tags/HDU/" rel="tag"># HDU</a>
+          
+        </div>
       
 
       
